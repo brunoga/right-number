@@ -16,66 +16,37 @@ import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
  */
 public class RightNumberReceiver extends BroadcastReceiver {
 
-  private static final String TAG = "RightNumberReceiver";
-
   @Override
   public void onReceive(Context context, Intent intent) {
     TelephonyManager telephonyManager =
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
     // TODO: Get rid of all the logging
-    Log.d(TAG, "Line1Number         : " + telephonyManager.getLine1Number());
-    Log.d(TAG, "NetworkOperator     : " + telephonyManager.getNetworkOperator());
-    Log.d(TAG, "NetworkOperatorName : " + telephonyManager.getNetworkOperatorName());
-    Log.d(TAG, "SimOperator         : " + telephonyManager.getSimOperator());
-    Log.d(TAG, "SimOperatorName     : " + telephonyManager.getSimOperatorName());
-    Log.d(TAG, "SubscriberId        : " + telephonyManager.getSubscriberId());
+    Log.d(RightNumberConstants.LOG_TAG, "Line1Number         : " + telephonyManager.getLine1Number());
+    Log.d(RightNumberConstants.LOG_TAG, "NetworkOperator     : " + telephonyManager.getNetworkOperator());
+    Log.d(RightNumberConstants.LOG_TAG, "NetworkOperatorName : " + telephonyManager.getNetworkOperatorName());
+    Log.d(RightNumberConstants.LOG_TAG, "SimOperator         : " + telephonyManager.getSimOperator());
+    Log.d(RightNumberConstants.LOG_TAG, "SimOperatorName     : " + telephonyManager.getSimOperatorName());
+    Log.d(RightNumberConstants.LOG_TAG, "SubscriberId        : " + telephonyManager.getSubscriberId());
 
     String currentCountry = telephonyManager.getNetworkCountryIso().toUpperCase();
-    Log.d(TAG, "Current country  : " + currentCountry);
+    Log.d(RightNumberConstants.LOG_TAG, "Current country  : " + currentCountry);
 
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
-    Log.d(TAG, "Original country : " + originalCountry);
+    Log.d(RightNumberConstants.LOG_TAG, "Original country : " + originalCountry);
 
     boolean isRoaming = telephonyManager.isNetworkRoaming();
-    Log.d(TAG, "Roaming          : " + isRoaming);
+    Log.d(RightNumberConstants.LOG_TAG, "Roaming          : " + isRoaming);
 
     String originalNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
-    Log.d(TAG, "Original number : " + originalNumber);
+    Log.d(RightNumberConstants.LOG_TAG, "Original number : " + originalNumber);
 
-    // Parses the phone number
-    PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
-    PhoneNumber parsedOriginalNumber = null;
-    try {
-      parsedOriginalNumber = phoneNumberUtil.parse(originalNumber, currentCountry);
-    } catch (NumberParseException e) {
-      Log.e(TAG, "Error parsing number : " + originalNumber);
-    }
+    PhoneNumberFormatter formatter = new PhoneNumberFormatter();
+    String newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry);
 
-    // Formats the new number
-    String newNumber = phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.NATIONAL);
-
-    // TODO: Generalize this
-    if (currentCountry.equalsIgnoreCase("BR")) {
-      if (parsedOriginalNumber.getCountryCode() == 55) {
-        // TODO: Why '(' ? I can put an area code without (. 
-        if (newNumber.getBytes()[0] == '(') {
-          Log.d(TAG, "Brazilian number with area code. Adding operator.");
-          newNumber = "041" + newNumber;
-        } else {
-          Log.d(TAG, "Brazilian number without area code. Using as is.");
-        }
-      } else {
-        Log.d(TAG, "International number. Calling from Brazil.");
-        newNumber = "0 041 " + parsedOriginalNumber.getCountryCode() + " " + newNumber;
-      }
-    } else {
-      Log.d(TAG, "Any number. Calling from somewhere else.");
-      newNumber = phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
-    }
-
-    Log.d(TAG, "New number      : " + newNumber);
+    Log.d(RightNumberConstants.LOG_TAG, "New number      : " + newNumber);
 
     setResultData(newNumber);
   }
+
 }
