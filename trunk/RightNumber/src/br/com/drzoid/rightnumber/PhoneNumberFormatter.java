@@ -26,7 +26,6 @@ public class PhoneNumberFormatter {
   }
 
   public String formatPhoneNumber(String originalNumber, String originalCountry, String currentCountry) {
-
     // Parses the phone number
     PhoneNumber parsedOriginalNumber = null;
     try {
@@ -50,6 +49,13 @@ public class PhoneNumberFormatter {
     return newNumber;
   }
 
+  /**
+   * Reformats a number when dialing from Brazil.
+   *
+   * @param parsedOriginalNumber the original number
+   * @param newNumber the pre-formatted version of the number
+   * @return the proper number for dialing from Brazil
+   */
   private String reformatForBrazil(PhoneNumber parsedOriginalNumber, String newNumber) {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 

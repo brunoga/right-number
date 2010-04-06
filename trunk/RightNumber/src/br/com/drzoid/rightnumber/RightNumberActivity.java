@@ -1,6 +1,5 @@
 package br.com.drzoid.rightnumber;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
