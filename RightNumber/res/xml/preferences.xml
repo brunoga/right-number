@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:title="@string/prefs_title">
+
+  <CheckBoxPreference android:title="@string/enable_formatting"
+                      android:summaryOn="@string/enable_formatting_summary_on"
+                      android:summaryOff="@string/enable_formatting_summary_off"
+                      android:key="enable_formatting"
+                      android:defaultValue="true" />
+
+  <!-- Special cases screen -->
+  <PreferenceScreen android:title="@string/special_cases_title"
+                    android:summary="@string/special_cases_summary"
+                    android:dependency="enable_formatting">
+    <PreferenceScreen android:title="@string/brazil">
+      <CheckBoxPreference android:title="@string/special_brazil_enable_title"
+                          android:summaryOn="@string/special_brazil_enable_summary_on"
+                          android:summaryOff="@string/special_brazil_enable_summary_off"
+                          android:key="special_br_enable"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/special_carrier_title"
+                      android:summary="@string/special_carrier_summary"
+                      android:entries="@array/special_brazil_carriers"
+                      android:entryValues="@array/special_brazil_carrier_codes"
+                      android:key="special_br_carrier"
+                      android:dependency="special_br_enable" />
+
+      <ListPreference android:title="@string/special_international_carrier_title"
+                      android:summary="@string/special_international_carrier_summary"
+                      android:entries="@array/special_brazil_carriers"
+                      android:entryValues="@array/special_brazil_carrier_codes"
+                      android:key="special_br_int_carrier"
+                      android:dependency="special_br_enable" />
+    </PreferenceScreen>
+
+    <!-- TODO: Check what other regions need special cases: http://www.exportbureau.com/telephone_codes/international_dialcode.html -->
+  </PreferenceScreen>
+</PreferenceScreen>

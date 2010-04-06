@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- From http://pt.wikipedia.org/wiki/Operadora -->
+	<string-array name="special_brazil_carriers">
+	    <!-- Most common ones first (alphabetical) -->
+		<item>Brasil Telecom</item>
+		<item>Embratel/Claro</item>
+		<item>Intelig</item>
+		<item>GVT</item>
+		<item>Oi</item>
+		<item>TIM</item>
+		<item>Telefonica/Vivo</item>
+
+        <!-- Every other (by code) -->
+		<item>LigueMAX</item>
+		<item>CTBC</item>
+		<item>Fonar</item>
+		<item>Viacom</item>
+		<item>Transit Telecom</item>
+		<item>Spin</item>
+		<item>Epsilon</item>
+		<item>Primeira Escolha</item>
+		<item>IDT</item>
+		<item>Aerotech</item>
+		<item>Alpamayo</item>
+		<item>T-LESTE TELECOM</item>
+		<item>Convergia</item>
+		<item>Teledados</item>
+		<item>Easytone</item>
+		<item>DSLI</item>
+		<item>Viper</item>
+		<item>GT Group</item>
+		<item>Sercomtel</item>
+		<item>Global Crossing(Impsat)</item>
+		<item>Hoje</item>
+		<item>BT Communications</item>
+		<item>Plenna</item>
+		<item>Cambridge</item>
+		<item>51 Brasil</item>
+		<item>LinkNET</item>
+		<item>Ostara</item>
+		<item>Telebit</item>
+		<item>Espas</item>
+		<item>Itavoice</item>
+		<item>Stellar</item>
+		<item>Nexus</item>
+		<item>OTS</item>
+		<item>Hello Brazil</item>
+		<item>Neotelecom</item>
+		<item>CGB VOIP</item>
+		<item>Redevox</item>
+		<item>Dollarphone</item>
+		<item>Locaweb</item>
+		<item>Vipway</item>
+		<item>Sermatel</item>
+		<item>BBT Brasil</item>
+		<item>Konecta</item>
+		<item>Falkland</item>
+		<item>Nebracam</item>
+		<item>Amigo</item>
+		<item>Alpha Nobilis</item>
+	</string-array>
+	<string-array name="special_brazil_carrier_codes">
+		<item>14</item>
+		<item>21</item>
+		<item>23</item>
+		<item>25</item>
+		<item>31</item>
+		<item>41</item>
+		<item>15</item>
+
+		<item>11</item>
+		<item>12</item>
+		<item>13</item>
+		<item>16</item>
+		<item>17</item>
+		<item>18</item>
+		<item>19</item>
+		<item>24</item>
+		<item>26</item>
+		<item>27</item>
+		<item>28</item>
+		<item>29</item>
+		<item>32</item>
+		<item>34</item>
+		<item>35</item>
+		<item>36</item>
+		<item>38</item>
+		<item>42</item>
+		<item>43</item>
+		<item>45</item>
+		<item>46</item>
+		<item>47</item>
+		<item>48</item>
+		<item>49</item>
+		<item>51</item>
+		<item>52</item>
+		<item>53</item>
+		<item>54</item>
+		<item>56</item>
+		<item>57</item>
+		<item>58</item>
+		<item>61</item>
+		<item>62</item>
+		<item>63</item>
+		<item>64</item>
+		<item>65</item>
+		<item>69</item>
+		<item>71</item>
+		<item>72</item>
+		<item>75</item>
+		<item>81</item>
+		<item>84</item>
+		<item>89</item>
+		<item>91</item>
+		<item>95</item>
+		<item>96</item>
+		<item>98</item>
+	</string-array>
+
+</resources>

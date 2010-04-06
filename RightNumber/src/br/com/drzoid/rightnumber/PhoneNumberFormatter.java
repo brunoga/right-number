@@ -1,5 +1,8 @@
 package br.com.drzoid.rightnumber;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.i18n.phonenumbers.NumberParseException;
@@ -14,8 +17,15 @@ import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
  */
 public class PhoneNumberFormatter {
   
+  private final Context context;
+  private final PhoneNumberUtil phoneNumberUtil;
+
+  public PhoneNumberFormatter(Context context) {
+    this.context = context;
+    this.phoneNumberUtil = PhoneNumberUtil.getInstance();
+  }
+
   public String formatPhoneNumber(String originalNumber, String originalCountry, String currentCountry) {
-    PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
 
     // Parses the phone number
     PhoneNumber parsedOriginalNumber = null;
@@ -34,22 +44,42 @@ public class PhoneNumberFormatter {
 
     // Process cases not covered by the phone number utils library
     // TODO: Generalize this - make it configurable
-    if (currentCountry.equalsIgnoreCase(RightNumberConstants.BRAZIL_REGION_CODE)) {
-      if (parsedOriginalNumber.getCountryCode() ==
-          phoneNumberUtil.getCountryCodeForRegion(RightNumberConstants.BRAZIL_REGION_CODE)) {
-        if (newNumber.getBytes()[0] == '(') {
-          Log.d(RightNumberConstants.LOG_TAG, "Brazilian number with area code. Adding operator.");
-          newNumber = "0" + RightNumberConstants.BRAZIL_CARRIER_CODE + newNumber;
-        } else {
-          Log.d(RightNumberConstants.LOG_TAG, "Brazilian number without area code. Using as is.");
-        }
-      } else {
-        Log.d(RightNumberConstants.LOG_TAG, "International number. Calling from Brazil.");
+    if (currentCountry.equalsIgnoreCase(RightNumberConstants.BRAZIL_COUNTRY_CODE)) {
+      newNumber = reformatForBrazil(parsedOriginalNumber, newNumber);
+    }
+    return newNumber;
+  }
 
-        // +1-650-555-1234 => 0041 1-650-555-1234
-        newNumber = newNumber.replace('+', ' ');
-        newNumber = "00" + RightNumberConstants.BRAZIL_CARRIER_CODE + newNumber;
+  private String reformatForBrazil(PhoneNumber parsedOriginalNumber, String newNumber) {
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+    // Check if Brazil special case processing is enabled
+    if (!preferences.getBoolean(PreferenceKeys.SPECIAL_BR_ENABLE, true)) {
+      return newNumber;
+    }
+
+    // If the number is from Brazil
+    if (parsedOriginalNumber.getCountryCode() ==
+        phoneNumberUtil.getCountryCodeForRegion(RightNumberConstants.BRAZIL_COUNTRY_CODE)) {
+      if (newNumber.getBytes()[0] == '(') {
+        Log.d(RightNumberConstants.LOG_TAG, "Brazilian number with area code. Adding operator.");
+
+        String carrierCode = preferences.getString(
+            PreferenceKeys.SPECIAL_BR_CARRIER_CODE,
+            RightNumberConstants.BRAZIL_DEFAULT_CARRIER);
+        newNumber = RightNumberConstants.BRAZIL_NATIONAL_PREFIX + carrierCode + newNumber;
+      } else {
+        Log.d(RightNumberConstants.LOG_TAG, "Brazilian number without area code. Using as is.");
       }
+    } else {
+      Log.d(RightNumberConstants.LOG_TAG, "International number. Calling from Brazil.");
+
+      // +1-650-555-1234 => 0041 1-650-555-1234
+      String carrierCode = preferences.getString(
+          PreferenceKeys.SPECIAL_BR_INTERNATIONAL_CARRIER_CODE,
+          RightNumberConstants.BRAZIL_DEFAULT_CARRIER);
+      newNumber = newNumber.replace('+', ' ');
+      newNumber = RightNumberConstants.BRAZIL_INTERNATIONAL_PREFIX + carrierCode + newNumber;
     }
     return newNumber;
   }
