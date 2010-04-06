@@ -6,11 +6,6 @@ import android.content.Intent;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
-import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
-
 /**
  * Broadcast receiver which intercepts dialing intents and fixes the number.
  */
@@ -41,7 +36,7 @@ public class RightNumberReceiver extends BroadcastReceiver {
     String originalNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
     Log.d(RightNumberConstants.LOG_TAG, "Original number : " + originalNumber);
 
-    PhoneNumberFormatter formatter = new PhoneNumberFormatter();
+    PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
     String newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry);
 
     Log.d(RightNumberConstants.LOG_TAG, "New number      : " + newNumber);

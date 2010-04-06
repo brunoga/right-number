@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, RightNumberActivity!</string>
-    <string name="app_name">Right Number</string>
+  <string name="app_name">Right Number</string>
+
+  <!-- Preferences strings -->
+  <string name="prefs_title">Right Number Preferences</string>
+  <string name="enable_formatting">Enable formatting</string>
+  <string name="enable_formatting_summary_on">Phone numbers will be reformatted before dialing.</string>
+  <string name="enable_formatting_summary_off">Numbers will be dialed unchanged.</string>
+  <string name="special_cases_title">Special cases</string>
+  <string name="special_cases_summary">Situations when numbers are handled differently</string>
+
+  <!-- Special cases -->
+  <string name="brazil">Brazil</string>
+  <string name="special_brazil_enable_title">Handle Brazilian dialing</string>
+  <string name="special_brazil_enable_summary_on">Numbers will be properly formatted when dialing from Brazil</string>
+  <string name="special_brazil_enable_summary_off">Numbers will be formatted normally, even when dialing from Brazil</string>
+  <string name="special_carrier_title">Long-distance carrier</string>
+  <string name="special_carrier_summary">Select the telephony carrier which will be used for long-distance calls</string>
+  <string name="special_international_carrier_title">International carrier</string>
+  <string name="special_international_carrier_summary">Select the telephony carrier which will be used for international calls</string>
 </resources>

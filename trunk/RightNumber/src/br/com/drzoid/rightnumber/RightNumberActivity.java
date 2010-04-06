@@ -2,16 +2,16 @@ package br.com.drzoid.rightnumber;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
 /**
  * The main activity, which shows RightNumber preferences.
  */
-public class RightNumberActivity extends Activity {
+public class RightNumberActivity extends PreferenceActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // TODO: Show preferences
-    setContentView(R.layout.main);
+    addPreferencesFromResource(R.xml.preferences);
   }
 }
