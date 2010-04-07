@@ -10,31 +10,57 @@
                       android:defaultValue="true" />
 
   <!-- Special cases screen -->
-  <PreferenceScreen android:title="@string/special_cases_title"
-                    android:summary="@string/special_cases_summary"
+  <PreferenceScreen android:title="@string/carriers_title"
+                    android:summary="@string/carriers_summary"
                     android:dependency="enable_formatting">
+    <PreferenceScreen android:title="@string/bolivia">
+    </PreferenceScreen>
     <PreferenceScreen android:title="@string/brazil">
-      <CheckBoxPreference android:title="@string/special_brazil_enable_title"
-                          android:summaryOn="@string/special_brazil_enable_summary_on"
-                          android:summaryOff="@string/special_brazil_enable_summary_off"
-                          android:key="special_br_enable"
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_br"
                           android:defaultValue="true" />
 
-      <ListPreference android:title="@string/special_carrier_title"
-                      android:summary="@string/special_carrier_summary"
-                      android:entries="@array/special_brazil_carriers"
-                      android:entryValues="@array/special_brazil_carrier_codes"
-                      android:key="special_br_carrier"
-                      android:dependency="special_br_enable" />
+      <ListPreference android:title="@string/carrier_title"
+                      android:summary="@string/carrier_summary"
+                      android:entries="@array/carriers_brazil"
+                      android:entryValues="@array/carrier_codes_brazil"
+                      android:key="carrier_br"
+                      android:dependency="carrier_enable_br" />
 
-      <ListPreference android:title="@string/special_international_carrier_title"
-                      android:summary="@string/special_international_carrier_summary"
-                      android:entries="@array/special_brazil_carriers"
-                      android:entryValues="@array/special_brazil_carrier_codes"
-                      android:key="special_br_int_carrier"
-                      android:dependency="special_br_enable" />
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/carriers_brazil"
+                      android:entryValues="@array/carrier_codes_brazil"
+                      android:key="carrier_intl_br"
+                      android:dependency="carrier_enable_br" />
     </PreferenceScreen>
-
-    <!-- TODO: Check what other regions need special cases: http://www.exportbureau.com/telephone_codes/international_dialcode.html -->
+    <PreferenceScreen android:title="@string/colombia">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/el_salvador">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/france">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/guatemala">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/hong_kong">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/israel">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/japan">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/panama">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/portugal">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/singapore">
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/venezuela">
+    </PreferenceScreen>
   </PreferenceScreen>
+  <Preference android:title="@string/test_formatting"
+              android:summary="@string/test_formatting_summary"
+              android:persistent="false"
+              android_key="testing_formatting" />
 </PreferenceScreen>
