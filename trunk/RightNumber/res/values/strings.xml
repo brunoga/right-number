@@ -7,16 +7,32 @@
   <string name="enable_formatting">Enable formatting</string>
   <string name="enable_formatting_summary_on">Phone numbers will be reformatted before dialing.</string>
   <string name="enable_formatting_summary_off">Numbers will be dialed unchanged.</string>
-  <string name="special_cases_title">Special cases</string>
-  <string name="special_cases_summary">Situations when numbers are handled differently</string>
+  <string name="carriers_title">Carriers</string>
+  <string name="carriers_summary">Carriers to use when dialing from countries that support it</string>
+  <string name="test_formatting">Test formatting</string>
+  <string name="test_formatting_summary">Choose this option to see how a number would be formatted.</string>
+
+  <!-- Country names -->
+  <string name="bolivia">Bolivia</string>
+  <string name="brazil">Brazil</string>
+  <string name="colombia">Colombia</string>
+  <string name="el_salvador">El Salvador</string>
+  <string name="france">France</string>
+  <string name="guatemala">Guatemala</string>
+  <string name="hong_kong">Hong Kong</string>
+  <string name="israel">Israel</string>
+  <string name="japan">Japan</string>
+  <string name="panama">Panama</string>
+  <string name="portugal">Portugal</string>
+  <string name="singapore">Singapore</string>
+  <string name="venezuela">Venezuela</string>
 
   <!-- Special cases -->
-  <string name="brazil">Brazil</string>
-  <string name="special_brazil_enable_title">Handle Brazilian dialing</string>
-  <string name="special_brazil_enable_summary_on">Numbers will be properly formatted when dialing from Brazil</string>
-  <string name="special_brazil_enable_summary_off">Numbers will be formatted normally, even when dialing from Brazil</string>
-  <string name="special_carrier_title">Long-distance carrier</string>
-  <string name="special_carrier_summary">Select the telephony carrier which will be used for long-distance calls</string>
-  <string name="special_international_carrier_title">International carrier</string>
-  <string name="special_international_carrier_summary">Select the telephony carrier which will be used for international calls</string>
+  <string name="enable_carriers_title">Enable carriers</string>
+  <string name="enable_carriers_summary_on">Numbers will be have the carrier added when dialing from this country</string>
+  <string name="enable_carriers_summary_off">Numbers will be formatted normally, even when dialing from this country</string>
+  <string name="carrier_title">Long-distance carrier</string>
+  <string name="carrier_summary">Select the telephony carrier which will be used for long-distance calls</string>
+  <string name="international_carrier_title">International carrier</string>
+  <string name="international_carrier_summary">Select the telephony carrier which will be used for international calls</string>
 </resources>
