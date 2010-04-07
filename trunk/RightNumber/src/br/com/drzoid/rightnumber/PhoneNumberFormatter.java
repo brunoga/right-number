@@ -67,7 +67,8 @@ public class PhoneNumberFormatter {
     // If the number is from Brazil
     if (parsedOriginalNumber.getCountryCode() ==
         phoneNumberUtil.getCountryCodeForRegion(RightNumberConstants.BRAZIL_COUNTRY_CODE)) {
-      if (newNumber.getBytes()[0] == '(') {
+      if (parsedOriginalNumber.isValidNumber()) {
+        // isValidNumber() only returns true if there is a valid area code.
         Log.d(RightNumberConstants.LOG_TAG, "Brazilian number with area code. Adding operator.");
 
         String carrierCode = preferences.getString(
