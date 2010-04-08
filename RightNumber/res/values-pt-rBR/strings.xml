@@ -35,4 +35,5 @@
   <string name="carrier_summary">Seleciona a operadora que será usada para DDD.</string>
   <string name="international_carrier_title">Operadora de DDI</string>
   <string name="international_carrier_summary">Seleciona a operadora que será usada para DDI.</string>
+<string name="invalid_number_toast_text">Número inválido para região. Usando sem modificação.</string>
 </resources>

@@ -2,11 +2,14 @@ package br.com.drzoid.rightnumber;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 /**
@@ -41,10 +44,16 @@ public class PhoneNumberFormatter {
     // INTERNATIONAL (if the current country is unknown) or the country-specific format
     String newNumber = phoneNumberUtil.formatOutOfCountryCallingNumber(parsedOriginalNumber, currentCountry);
 
-    // Process cases not covered by the phone number utils library
-    // TODO: Generalize this - make it configurable
-    if (currentCountry.equalsIgnoreCase(RightNumberConstants.BRAZIL_COUNTRY_CODE)) {
-      newNumber = reformatForBrazil(parsedOriginalNumber, newNumber);
+    if (phoneNumberUtil.isValidNumberForRegion(parsedOriginalNumber, originalCountry)) {
+      // Process cases not covered by the phone number utils library
+      // TODO: Generalize this - make it configurable
+      if (currentCountry.equalsIgnoreCase(RightNumberConstants.BRAZIL_COUNTRY_CODE)) {
+        newNumber = reformatForBrazil(parsedOriginalNumber, newNumber);
+      }
+    } else {
+      Toast.makeText(context, context.getResources().getText(R.string.invalid_number_toast_text),
+          Toast.LENGTH_SHORT).show();
+      return originalNumber;
     }
     return newNumber;
   }
