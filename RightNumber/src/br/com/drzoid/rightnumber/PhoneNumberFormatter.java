@@ -2,14 +2,12 @@ package br.com.drzoid.rightnumber;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 /**
@@ -104,7 +102,7 @@ public class PhoneNumberFormatter {
   // Common patterns: 0(national)/00(international)+carrier, 0+carrier (intl), 00+carrier (intl), carrier+00 (intl), 
   // TODO: Implement these as well
   // TODO: Check that for all other countries which only take 0/00/011 but no carrier it already gives the right number
-  // TODO: Check which countris support dialing with + instead of the IDD
+  // TODO: Check which countries support dialing with + instead of the IDD
   // Other relevant resources:
   // http://countrycode.org/
   // http://www.timedial.net/world-time-zone-dialing-codes-from-VE.aspx
