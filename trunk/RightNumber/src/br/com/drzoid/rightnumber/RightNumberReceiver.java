@@ -16,7 +16,7 @@ public class RightNumberReceiver extends BroadcastReceiver {
   @Override
   public void onReceive(Context context, Intent intent) {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    if (!preferences.getBoolean(PreferenceKeys.ENABLE_FORMATTING, true)) {
+    if (!preferences.getBoolean(RightNumberConstants.ENABLE_FORMATTING, true)) {
       // Formatting disabled, do nothing
       return;
     }
