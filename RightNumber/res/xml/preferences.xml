@@ -14,6 +14,25 @@
                     android:summary="@string/carriers_summary"
                     android:dependency="enable_formatting">
     <PreferenceScreen android:title="@string/bolivia">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_bo"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/carrier_title"
+                      android:summary="@string/carrier_summary"
+                      android:entries="@array/carriers_bo"
+                      android:entryValues="@array/carrier_codes_bo"
+                      android:key="carrier_bo"
+                      android:dependency="carrier_enable_bo" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/carriers_bo"
+                      android:entryValues="@array/int_carrier_codes_bo"
+                      android:key="int_carrier_bo"
+                      android:dependency="carrier_enable_bo" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/brazil">
       <CheckBoxPreference android:title="@string/enable_carriers_title"
@@ -24,39 +43,185 @@
 
       <ListPreference android:title="@string/carrier_title"
                       android:summary="@string/carrier_summary"
-                      android:entries="@array/carriers_brazil"
-                      android:entryValues="@array/carrier_codes_brazil"
+                      android:entries="@array/carriers_br"
+                      android:entryValues="@array/carrier_codes_br"
                       android:key="carrier_br"
                       android:dependency="carrier_enable_br" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
-                      android:entries="@array/carriers_brazil"
-                      android:entryValues="@array/carrier_codes_brazil"
+                      android:entries="@array/carriers_br"
+                      android:entryValues="@array/int_carrier_codes_br"
                       android:key="int_carrier_br"
                       android:dependency="carrier_enable_br" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/colombia">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_co"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/carrier_title"
+                      android:summary="@string/carrier_summary"
+                      android:entries="@array/carriers_co"
+                      android:entryValues="@array/carrier_codes_co"
+                      android:key="carrier_co"
+                      android:dependency="carrier_enable_co" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/carriers_co"
+                      android:entryValues="@array/int_carrier_codes_co"
+                      android:key="int_carrier_co"
+                      android:dependency="carrier_enable_co" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/el_salvador">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_sv"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_sv"
+                      android:entryValues="@array/int_carrier_codes_sv"
+                      android:key="int_carrier_sv"
+                      android:dependency="carrier_enable_sv" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/france">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_fr"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_fr"
+                      android:entryValues="@array/int_carrier_codes_fr"
+                      android:key="int_carrier_fr"
+                      android:dependency="carrier_enable_fr" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/guatemala">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_gt"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_gt"
+                      android:entryValues="@array/int_carrier_codes_gt"
+                      android:key="int_carrier_gt"
+                      android:dependency="carrier_enable_gt" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/hong_kong">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_hk"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_hk"
+                      android:entryValues="@array/int_carrier_codes_hk"
+                      android:key="int_carrier_hk"
+                      android:dependency="carrier_enable_hk" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/israel">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_il"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_il"
+                      android:entryValues="@array/int_carrier_codes_il"
+                      android:key="int_carrier_il"
+                      android:dependency="carrier_enable_il" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/japan">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_jp"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_jp"
+                      android:entryValues="@array/int_carrier_codes_jp"
+                      android:key="int_carrier_jp"
+                      android:dependency="carrier_enable_jp" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/panama">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_pa"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_pa"
+                      android:entryValues="@array/int_carrier_codes_pa"
+                      android:key="int_carrier_pa"
+                      android:dependency="carrier_enable_pa" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/portugal">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_pt"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_pt"
+                      android:entryValues="@array/int_carrier_codes_pt"
+                      android:key="int_carrier_pt"
+                      android:dependency="carrier_enable_pt" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/singapore">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_sg"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/int_carriers_sg"
+                      android:entryValues="@array/int_carrier_codes_sg"
+                      android:key="int_carrier_sg"
+                      android:dependency="carrier_enable_sg" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/venezuela">
+      <CheckBoxPreference android:title="@string/enable_carriers_title"
+                          android:summaryOn="@string/enable_carriers_summary_on"
+                          android:summaryOff="@string/enable_carriers_summary_off"
+                          android:key="carrier_enable_ve"
+                          android:defaultValue="true" />
+
+      <ListPreference android:title="@string/carrier_title"
+                      android:summary="@string/carrier_summary"
+                      android:entries="@array/carriers_ve"
+                      android:entryValues="@array/carrier_codes_ve"
+                      android:key="carrier_ve"
+                      android:dependency="carrier_enable_ve" />
+
+      <ListPreference android:title="@string/international_carrier_title"
+                      android:summary="@string/international_carrier_summary"
+                      android:entries="@array/carriers_ve"
+                      android:entryValues="@array/int_carrier_codes_ve"
+                      android:key="int_carrier_ve"
+                      android:dependency="carrier_enable_ve" />
     </PreferenceScreen>
   </PreferenceScreen>
   <Preference android:title="@string/test_formatting"
