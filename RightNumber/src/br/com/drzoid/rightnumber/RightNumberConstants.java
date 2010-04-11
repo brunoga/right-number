@@ -7,7 +7,7 @@ public class RightNumberConstants {
 
   // Preference keys
   public static final String ENABLE_FORMATTING = "enable_formatting";
-  public static final String ENABLE_CARRIER_BASE_KEY = "enable_carrier_";
+  public static final String ENABLE_CARRIER_BASE_KEY = "carrier_enable_";
 
   private RightNumberConstants() { }
 }
