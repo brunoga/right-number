@@ -7,9 +7,9 @@ package br.com.drzoid.rightnumber;
  */
 public class PreferenceKeys {
   public static final String ENABLE_FORMATTING = "enable_formatting";
-  public static final String SPECIAL_BR_ENABLE = "special_br_enable";
-  public static final String SPECIAL_BR_CARRIER_CODE = "special_br_carrier";
-  public static final String SPECIAL_BR_INTERNATIONAL_CARRIER_CODE = "special_br_int_carrier";
+  public static final String ENABLE_CARRIER_BR = "carrier_enable_br";
+  public static final String CARRIER_CODE_BR = "carrier_br";
+  public static final String INTERNATIONAL_CARRIER_CODE_BR = "int_carrier_br";
 
   private PreferenceKeys() { }
 }

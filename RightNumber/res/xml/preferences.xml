@@ -26,14 +26,14 @@
                       android:summary="@string/carrier_summary"
                       android:entries="@array/carriers_brazil"
                       android:entryValues="@array/carrier_codes_brazil"
-                      android:key="special_br_carrier"
+                      android:key="carrier_br"
                       android:dependency="carrier_enable_br" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
                       android:entries="@array/carriers_brazil"
                       android:entryValues="@array/carrier_codes_brazil"
-                      android:key="special_br_int_carrier"
+                      android:key="int_carrier_br"
                       android:dependency="carrier_enable_br" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/colombia">
