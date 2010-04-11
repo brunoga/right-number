@@ -3,6 +3,7 @@ package br.com.drzoid.rightnumber;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
@@ -50,25 +51,30 @@ public class CarrierCodes {
    * @return the reformatted number
    */
   public String reformatNumberForCountry(PhoneNumber parsedOriginalNumber, String newNumber, String dialingFrom) {
+    dialingFrom = dialingFrom.toLowerCase();
     boolean nationalDialing = isNationalDialing(parsedOriginalNumber, dialingFrom);
 
     if (nationalDialing && !requiresCarrier(dialingFrom)) {
       // National dialing, no carrier required
+      Log.d(RightNumberConstants.LOG_TAG, "Local carrier not required");
       return newNumber;
     }
 
     if (!nationalDialing && !requiresInternationalCarrier(dialingFrom)) {
       // International dialing, no carrier required
+      Log.d(RightNumberConstants.LOG_TAG, "International carrier not required");
       return newNumber;
     }
 
     // Check if carrier use is enabled for the dialing country
-    if (!preferences.getBoolean(RightNumberConstants.ENABLE_CARRIER_BASE_KEY + dialingFrom.toLowerCase(), false)) {
+    if (!preferences.getBoolean(RightNumberConstants.ENABLE_CARRIER_BASE_KEY + dialingFrom, false)) {
+      Log.d(RightNumberConstants.LOG_TAG, "Carrier usage disabled for country " + dialingFrom);
       return newNumber;
     }
 
     // Get the carrier code to use
     String carrierCode = getCarrierCode(dialingFrom, nationalDialing);
+    Log.d(RightNumberConstants.LOG_TAG, "Carrier code: " + carrierCode);
 
     // If there's a +, remove it
     newNumber = newNumber.replace('+', ' ');
@@ -95,9 +101,10 @@ public class CarrierCodes {
 
     // Get the proper carrier code to use
     carrierCodePreferenceKeyBuilder.append("carrier_");
-    carrierCodePreferenceKeyBuilder.append(dialingFrom.toLowerCase());
+    carrierCodePreferenceKeyBuilder.append(dialingFrom);
     String carrierCodePreferenceKey = carrierCodePreferenceKeyBuilder.toString();
     String defaultCarrierCode = getDefaultCarrierCode(dialingFrom, nationalDialing);
+    Log.d(RightNumberConstants.LOG_TAG, "Carrier code key: " + carrierCodePreferenceKey);
     String carrierCode = preferences.getString(carrierCodePreferenceKey, defaultCarrierCode);
     return carrierCode;
   }
@@ -132,7 +139,7 @@ public class CarrierCodes {
       codeArraysName.append("int_");
     }
     codeArraysName.append("carrier_codes_");
-    codeArraysName.append(dialingFrom.toLowerCase());
+    codeArraysName.append(dialingFrom);
 
     int id = context.getResources().getIdentifier(codeArraysName.toString(), "array",
         RightNumberConstants.RES_PACKAGE);
@@ -148,6 +155,10 @@ public class CarrierCodes {
    * @return true if it's a national call, false otherwise
    */
   private boolean isNationalDialing(PhoneNumber number, String dialingFrom) {
-    return (number.getCountryCode() == phoneNumberUtil.getCountryCodeForRegion(dialingFrom));
+    int localCountryCode = phoneNumberUtil.getCountryCodeForRegion(dialingFrom.toUpperCase());
+    int numberCountryCode = number.getCountryCode();
+    Log.d(RightNumberConstants.LOG_TAG,
+        "Local country: " + localCountryCode + "; number country: " + numberCountryCode);
+    return (numberCountryCode == localCountryCode);
   }
 }
