@@ -67,7 +67,7 @@ public class PhoneNumberFormatter {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
     // Check if Brazil special case processing is enabled
-    if (!preferences.getBoolean(PreferenceKeys.SPECIAL_BR_ENABLE, true)) {
+    if (!preferences.getBoolean(PreferenceKeys.ENABLE_CARRIER_BR, true)) {
       return newNumber;
     }
 
@@ -79,7 +79,7 @@ public class PhoneNumberFormatter {
         Log.d(RightNumberConstants.LOG_TAG, "Brazilian number with area code. Adding operator.");
 
         String carrierCode = preferences.getString(
-            PreferenceKeys.SPECIAL_BR_CARRIER_CODE,
+            PreferenceKeys.CARRIER_CODE_BR,
             RightNumberConstants.BRAZIL_DEFAULT_CARRIER);
         newNumber = RightNumberConstants.BRAZIL_NATIONAL_PREFIX + carrierCode + newNumber;
       } else {
@@ -90,7 +90,7 @@ public class PhoneNumberFormatter {
 
       // +1-650-555-1234 => 0041 1-650-555-1234
       String carrierCode = preferences.getString(
-          PreferenceKeys.SPECIAL_BR_INTERNATIONAL_CARRIER_CODE,
+          PreferenceKeys.INTERNATIONAL_CARRIER_CODE_BR,
           RightNumberConstants.BRAZIL_DEFAULT_CARRIER);
       newNumber = newNumber.replace('+', ' ');
       newNumber = RightNumberConstants.BRAZIL_INTERNATIONAL_PREFIX + carrierCode + newNumber;
