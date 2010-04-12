@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Info from http://www.exportbureau.com/telephone_codes/international_dialcode.html
+    <!-- Info from http://www.exportbureau.com/telephone_codes/international_dialcode.html
          Other relevant resources:
           http://countrycode.org/
           http://www.timedial.net/world-time-zone-dialing-codes-from-VE.aspx
@@ -9,7 +9,7 @@
           http://www.howtocallabroad.com/
     -->
 
-    <!-- Important: The code in CarrierCods.java depends on the naming format
+    <!-- Important: The code in CarrierCodes.java depends on the naming format
          for these arrays -->
 
     <!-- Bolivia -->
