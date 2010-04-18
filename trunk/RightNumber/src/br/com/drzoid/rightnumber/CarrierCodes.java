@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 /**
@@ -54,6 +55,16 @@ public class CarrierCodes {
     dialingFrom = dialingFrom.toLowerCase();
     boolean nationalDialing = isNationalDialing(parsedOriginalNumber, dialingFrom);
 
+    PhoneNumberType phoneNumberType = phoneNumberUtil.getNumberType(parsedOriginalNumber);
+    
+    if (phoneNumberType == PhoneNumberType.TOLL_FREE ||
+    		phoneNumberType == PhoneNumberType.PREMIUM_RATE ||
+    		phoneNumberType == PhoneNumberType.SHARED_COST) {
+    	// Assume all of these number types do not require a carrier code.
+    	// TODO: Check if this is true everywhere.
+    	return newNumber;
+    }
+    
     if (nationalDialing && !requiresCarrier(dialingFrom)) {
       // National dialing, no carrier required
       Log.d(RightNumberConstants.LOG_TAG, "Local carrier not required");
