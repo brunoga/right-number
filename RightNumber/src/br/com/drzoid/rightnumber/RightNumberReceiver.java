@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Broadcast receiver which intercepts dialing intents and fixes the number.
@@ -45,7 +46,12 @@ public class RightNumberReceiver extends BroadcastReceiver {
     Log.d(RightNumberConstants.LOG_TAG, "Original number : " + originalNumber);
 
     PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
-    String newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry);
+    String newNumber = originalNumber;
+    try {
+      newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry);
+    } catch (IllegalArgumentException e) {
+      Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+    }
 
     Log.d(RightNumberConstants.LOG_TAG, "New number      : " + newNumber);
 

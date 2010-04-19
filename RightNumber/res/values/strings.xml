@@ -41,5 +41,5 @@
   <string name="carrier_summary">Select the telephony carrier which will be used for long-distance calls</string>
   <string name="international_carrier_title">International carrier</string>
   <string name="international_carrier_summary">Select the telephony carrier which will be used for international calls</string>
-  <string name="invalid_number_toast_text">Invalid number for region. Using it as-is.</string>
+  <string name="invalid_number">Invalid number for region. Using it as-is.</string>
 </resources>
