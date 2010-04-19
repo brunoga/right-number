@@ -46,11 +46,10 @@ public class PhoneNumberFormatter {
     }
 
     // Formats the new number.
-    // The resulting format is either NATIONAL (if the number if from the current country),
+    // The resulting format is either NATIONAL (if the number is from the current country),
     // INTERNATIONAL (if the current country is unknown) or the country-specific format
     String newNumber = phoneNumberUtil.formatOutOfCountryCallingNumber(parsedOriginalNumber, currentCountry);
-    if (phoneNumberUtil.isValidNumber(parsedOriginalNumber) &&
-        phoneNumberUtil.isValidNumberForRegion(parsedOriginalNumber, originalCountry)) {
+    if (phoneNumberUtil.isValidNumber(parsedOriginalNumber)) {
       // Process cases not covered by the phone number utils library
       newNumber = carrierCodes.reformatNumberForCountry(parsedOriginalNumber, newNumber, currentCountry);
     } else {
