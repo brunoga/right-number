@@ -34,6 +34,14 @@
               android:layout_gravity="center_horizontal"
               android:paddingTop="4px"
               android:gravity="center_horizontal"/>
+    <TextView android:id="@+id/test_formatting_error"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:paddingTop="4px"
+              android:gravity="center_horizontal"
+              android:visibility="gone"
+              android:textColor="#ff0000" />
 
     <!-- Dialing from -->
     <TextView android:text="@string/test_dialing_from"

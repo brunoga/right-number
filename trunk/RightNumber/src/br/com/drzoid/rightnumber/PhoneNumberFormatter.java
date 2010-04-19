@@ -2,7 +2,6 @@ package br.com.drzoid.rightnumber;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -26,6 +25,15 @@ public class PhoneNumberFormatter {
     this.carrierCodes = new CarrierCodes(context, phoneNumberUtil);
   }
 
+  /**
+   * Formats a phone number for dialing.
+   *
+   * @param originalNumber the number to format
+   * @param originalCountry the country the phone line is from
+   * @param currentCountry the country the user is currently in
+   * @return the formatted number
+   * @throws IllegalArgumentException if the number is invalid
+   */
   public String formatPhoneNumber(String originalNumber, String originalCountry, String currentCountry) {
     // Parses the phone number
     PhoneNumber parsedOriginalNumber = null;
@@ -46,9 +54,8 @@ public class PhoneNumberFormatter {
       // Process cases not covered by the phone number utils library
       newNumber = carrierCodes.reformatNumberForCountry(parsedOriginalNumber, newNumber, currentCountry);
     } else {
-      Toast.makeText(context, context.getResources().getText(R.string.invalid_number_toast_text),
-          Toast.LENGTH_SHORT).show();
-      return originalNumber;
+      String message = context.getString(R.string.invalid_number);
+      throw new IllegalArgumentException(message);
     }
     return newNumber;
   }

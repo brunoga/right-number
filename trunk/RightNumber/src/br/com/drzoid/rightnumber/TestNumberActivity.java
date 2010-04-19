@@ -27,6 +27,7 @@ public class TestNumberActivity extends Activity {
   private EditText inputText;
   private TextView outputText;
   private String[] countryCodes;
+  private TextView errorView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class TestNumberActivity extends Activity {
     lineFrom = (Spinner) findViewById(R.id.line_from);
     inputText = (EditText) findViewById(R.id.test_number_input);
     outputText = (TextView) findViewById(R.id.test_formatted_number);
+    errorView = (TextView) findViewById(R.id.test_formatting_error);
 
     // Set default countries to the current ones
     TelephonyManager telephonyManager =
@@ -107,6 +109,8 @@ public class TestNumberActivity extends Activity {
    * inputs.
    */
   private void updateFormattedNumber() {
+    errorView.setVisibility(View.GONE);
+
     String originalNumber = inputText.getText().toString();
     if (originalNumber.length() == 0) {
       outputText.setText(R.string.test_formatted_blank_number);
@@ -121,9 +125,13 @@ public class TestNumberActivity extends Activity {
     Log.d(RightNumberConstants.LOG_TAG,
         "Number:" + originalNumber + "; from=" + fromCountryCode + "; line=" + lineCountryCode);
 
-    // TODO: Make sure this doesn't show Toasts while the user is typing
-    String newNumber =
-        formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode);
+    String newNumber = originalNumber;
+    try {
+      newNumber = formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode);
+    } catch (IllegalArgumentException e) {
+      errorView.setText(e.getMessage());
+      errorView.setVisibility(View.VISIBLE);
+    }
     outputText.setText(newNumber);
   }
 }
