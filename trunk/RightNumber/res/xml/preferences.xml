@@ -227,5 +227,5 @@
   <Preference android:title="@string/test_formatting"
               android:summary="@string/test_formatting_summary"
               android:persistent="false"
-              android_key="testing_formatting" />
+              android:key="test_formatting" />
 </PreferenceScreen>
