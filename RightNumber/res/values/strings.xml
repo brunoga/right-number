@@ -11,6 +11,12 @@
   <string name="carriers_summary">Carriers to use when dialing from countries that support it</string>
   <string name="test_formatting">Test formatting</string>
   <string name="test_formatting_summary">Choose this option to see how a number would be formatted.</string>
+  <string name="test_original_number">Original dialed number:</string>
+  <string name="test_blank_number">Type a phone number.</string>
+  <string name="test_formatted_number">Formatted number:</string>
+  <string name="test_formatted_blank_number">Type a number above to see how it would be formatted.</string>
+  <string name="test_dialing_from">Dialing from:</string>
+  <string name="test_line_from">Using a phone line from:</string>
 
   <!-- Country names -->
   <string name="bolivia">Bolivia</string>

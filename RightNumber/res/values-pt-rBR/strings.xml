@@ -11,21 +11,21 @@
   <string name="carriers_summary">Operadoras a serem usadas quando ligando de paises que usam as mesmas.</string>
   <string name="test_formatting">Teste de formatação</string>
   <string name="test_formatting_summary">Selecione esta opção para ver como um número será formatado.</string>
+  <string name="test_original_number">Número original:</string>
+  <string name="test_blank_number">Digite um número de telefone.</string>
+  <string name="test_formatted_number">Número formatado:</string>
+  <string name="test_formatted_blank_number">Digite um número acima para ver como ele seria formatado.</string>
+  <string name="test_dialing_from">Discando do(a):</string>
+  <string name="test_line_from">Usando uma linha do(a):</string>
 
   <!-- Country names -->
-  <string name="bolivia">Bolivia</string>
+  <string name="bolivia">Bolívia</string>
   <string name="brazil">Brasil</string>
   <string name="colombia">Colômbia</string>
-  <string name="el_salvador">El Salvador</string>
   <string name="france">França</string>
-  <string name="guatemala">Guatemala</string>
-  <string name="hong_kong">Hong Kong</string>
-  <string name="israel">Israel</string>
   <string name="japan">Japão</string>
   <string name="panama">Panamá</string>
-  <string name="portugal">Portugal</string>
   <string name="singapore">Singapura</string>
-  <string name="venezuela">Venezuela</string>
 
   <!-- Special cases -->
   <string name="enable_carriers_title">Habilitar operadoras</string>
