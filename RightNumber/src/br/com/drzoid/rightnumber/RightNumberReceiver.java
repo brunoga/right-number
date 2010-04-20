@@ -26,13 +26,8 @@ public class RightNumberReceiver extends BroadcastReceiver {
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
     String currentCountry = telephonyManager.getNetworkCountryIso().toUpperCase();
-    Log.d(RightNumberConstants.LOG_TAG, "Current country  : " + currentCountry);
-
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
-    Log.d(RightNumberConstants.LOG_TAG, "Original country : " + originalCountry);
-
     String originalNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
-    Log.d(RightNumberConstants.LOG_TAG, "Original number : " + originalNumber);
 
     PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
     String newNumber = originalNumber;
@@ -42,7 +37,24 @@ public class RightNumberReceiver extends BroadcastReceiver {
       Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
-    Log.d(RightNumberConstants.LOG_TAG, "New number      : " + newNumber);
+    StringBuilder debugData = new StringBuilder();
+    debugData.append("Current Country  : ");
+    debugData.append(currentCountry);
+    debugData.append('\n');
+
+    debugData.append("Original Country : ");
+    debugData.append(originalCountry);
+    debugData.append('\n');
+
+    debugData.append("Original Number  : ");
+    debugData.append(originalNumber);
+    debugData.append('\n');
+
+    debugData.append("New Number       : ");
+    debugData.append(newNumber);
+    debugData.append('\n');
+
+    Log.d(RightNumberConstants.LOG_TAG, debugData.toString());
 
     setResultData(newNumber);
   }
