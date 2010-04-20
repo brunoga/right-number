@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Info from http://www.exportbureau.com/telephone_codes/international_dialcode.html
-         Other relevant resources:
-          http://countrycode.org/
-          http://www.timedial.net/world-time-zone-dialing-codes-from-VE.aspx
-          http://en.wikipedia.org/wiki/List_of_international_call_prefixes
-          http://en.wikipedia.org/wiki/List_of_country_calling_codes
-          http://www.howtocallabroad.com/
-    -->
+  <!-- Info from http://www.exportbureau.com/telephone_codes/international_dialcode.html
+       Other relevant resources:
+        http://countrycode.org/
+        http://www.timedial.net/world-time-zone-dialing-codes-from-VE.aspx
+        http://en.wikipedia.org/wiki/List_of_international_call_prefixes
+        http://en.wikipedia.org/wiki/List_of_country_calling_codes
+        http://www.howtocallabroad.com/
+  -->
 
-    <!-- Important: The code in CarrierCodes.java depends on the naming format
-         for these arrays -->
+  <!-- Important: The code in CarrierCodes.java depends on the naming format
+       for these arrays -->
 
-    <!-- Bolivia -->
+  <!-- Bolivia -->
 	<string-array name="carriers_bo">
 		<item>AES</item>
 		<item>Boliviatel</item>
@@ -32,7 +32,7 @@
 		<item>0012</item>
 	</string-array>
 
-    <!-- Brazil -->
+  <!-- Brazil -->
 	<!-- From http://pt.wikipedia.org/wiki/Operadora -->
 	<string-array name="carriers_br">
 	    <!-- Most common ones first (alphabetical) -->
@@ -44,7 +44,7 @@
 		<item>Telefonica/Vivo</item>
 		<item>TIM</item>
 
-        <!-- Every other (by code) -->
+    <!-- Every other (by code) -->
 		<item>LigueMAX</item>
 		<item>CTBC</item>
 		<item>Fonar</item>
@@ -208,7 +208,7 @@
 		<item>0098</item>
 	</string-array>
 
-    <!-- Colombia -->
+  <!-- Colombia -->
 	<string-array name="carriers_co">
 		<item>ETB</item>
 		<item>Orbitel</item>
@@ -225,7 +225,7 @@
 		<item>009</item>
 	</string-array>
 
-    <!-- El Salvador -->
+  <!-- El Salvador -->
 	<string-array name="int_carriers_sv">
 		<item>Padrão</item>
 		<item>Telefonica</item>
@@ -235,7 +235,7 @@
 		<item>00144</item>
 	</string-array>
 
-    <!-- France -->
+  <!-- France -->
 	<string-array name="int_carriers_fr">
 		<item>France Telecom</item>
 		<item>Tele 2</item>
@@ -251,7 +251,7 @@
 		<item>90</item>
 	</string-array>
 
-    <!-- Guatemala -->
+  <!-- Guatemala -->
 	<string-array name="int_carriers_gt">
 		<item>Padrão</item>
 		<item>Telefonica</item>
@@ -263,7 +263,7 @@
 		<item>14700</item>
 	</string-array>
 
-    <!-- Hong Kong -->
+  <!-- Hong Kong -->
 	<string-array name="int_carriers_hk">
 		<item>PCCW</item>
 		<item>Hutchinson</item>
@@ -275,7 +275,7 @@
 		<item>009</item>
 	</string-array>
 
-    <!-- Israel -->
+  <!-- Israel -->
 	<string-array name="int_carriers_il">
 		<item>Padrão</item>
 		<item>Golden Lines</item>
@@ -289,7 +289,7 @@
 		<item>014</item>
 	</string-array>
 
-    <!-- Japan -->
+  <!-- Japan -->
 	<string-array name="int_carriers_jp">
 		<item>KDD</item>
 		<item>MyLine</item>
@@ -303,7 +303,7 @@
 		<item>0041</item>
 	</string-array>
 
-    <!-- Panama -->
+  <!-- Panama -->
 	<string-array name="int_carriers_pa">
 		<item>Cable &amp; Wireless</item>
 		<item>Telecarrier</item>
@@ -315,7 +315,7 @@
 		<item>05500</item>
 	</string-array>
 
-    <!-- Portugal -->
+  <!-- Portugal -->
 	<string-array name="int_carriers_pt">
 		<item>Padrão</item>
 		<item>Rubicon</item>
@@ -325,7 +325,7 @@
 		<item>882</item>
 	</string-array>
 
-    <!-- Singapore -->
+  <!-- Singapore -->
 	<string-array name="int_carriers_sg">
 		<item>Singtel</item>
 		<item>Singtel Foxplus</item>
@@ -345,7 +345,7 @@
 		<item>018</item>
 	</string-array>
 
-    <!-- Venezuela -->
+  <!-- Venezuela -->
 	<string-array name="carriers_ve">
 		<item>Padrão</item>
 		<item>Etelix</item>
@@ -386,7 +386,7 @@
 		<item>01990</item>
 	</string-array>
 
-    <!-- ISO 3166 country names and codes, from http://www.iso.org/iso/english_country_names_and_code_elements -->
+  <!-- ISO 3166 country names and codes, from http://www.iso.org/iso/english_country_names_and_code_elements -->
 	<string-array name="country_names">
 		<item>Afeganistão</item>
 		<item>Ilhas Åland</item>

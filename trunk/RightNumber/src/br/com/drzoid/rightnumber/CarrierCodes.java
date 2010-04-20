@@ -58,11 +58,18 @@ public class CarrierCodes {
     PhoneNumberType phoneNumberType = phoneNumberUtil.getNumberType(parsedOriginalNumber);
     
     if (phoneNumberType == PhoneNumberType.TOLL_FREE ||
-    		phoneNumberType == PhoneNumberType.PREMIUM_RATE ||
-    		phoneNumberType == PhoneNumberType.SHARED_COST) {
-    	// Assume all of these number types do not require a carrier code.
-    	// TODO: Check if this is true everywhere.
-    	return newNumber;
+        phoneNumberType == PhoneNumberType.PREMIUM_RATE ||
+        phoneNumberType == PhoneNumberType.SHARED_COST) {
+      // Assume all of these number types do not require a carrier code.
+      // TODO: Check if this is true everywhere.
+      return newNumber;
+    }
+    
+    // TODO: Remove this as soon as 4004/3003 number handling in fixed in
+    // libphonenumber.
+    if (parsedOriginalNumber.getCountryCode() == 55 &&
+        (newNumber.startsWith("4004") || newNumber.startsWith("3003"))) {
+      return newNumber;
     }
     
     if (nationalDialing && !requiresCarrier(dialingFrom)) {
@@ -85,13 +92,13 @@ public class CarrierCodes {
 
     // Get the carrier code to use
     String carrierCode = getCarrierCode(dialingFrom, nationalDialing);
-    Log.d(RightNumberConstants.LOG_TAG, "Carrier code: " + carrierCode);
+    Log.d(RightNumberConstants.LOG_TAG, "Carrier Code     : " + carrierCode);
 
     // If there's a +, remove it
     newNumber = newNumber.replace('+', ' ');
 
     // Prepend the carrier code
-    newNumber = carrierCode + newNumber;
+    newNumber = carrierCode + " " + newNumber;
     return newNumber;
   }
 
@@ -101,7 +108,7 @@ public class CarrierCodes {
    *
    * @param dialingFrom the country we're dialing from
    * @param nationalDialing whether the number dialed is from the same country
-   * @return
+   * @return carrier code
    */
   private String getCarrierCode(String dialingFrom, boolean nationalDialing) {
     // Check whether to use a national or international carrier code
@@ -115,7 +122,6 @@ public class CarrierCodes {
     carrierCodePreferenceKeyBuilder.append(dialingFrom);
     String carrierCodePreferenceKey = carrierCodePreferenceKeyBuilder.toString();
     String defaultCarrierCode = getDefaultCarrierCode(dialingFrom, nationalDialing);
-    Log.d(RightNumberConstants.LOG_TAG, "Carrier code key: " + carrierCodePreferenceKey);
     String carrierCode = preferences.getString(carrierCodePreferenceKey, defaultCarrierCode);
     return carrierCode;
   }
@@ -137,7 +143,7 @@ public class CarrierCodes {
   }
 
   /**
-   * Returs the resource ID for the string array of carrier codes for the given
+   * Returns the resource ID for the string array of carrier codes for the given
    * call.
    *
    * @param dialingFrom the country we're dialing from
@@ -168,8 +174,6 @@ public class CarrierCodes {
   private boolean isNationalDialing(PhoneNumber number, String dialingFrom) {
     int localCountryCode = phoneNumberUtil.getCountryCodeForRegion(dialingFrom.toUpperCase());
     int numberCountryCode = number.getCountryCode();
-    Log.d(RightNumberConstants.LOG_TAG,
-        "Local country: " + localCountryCode + "; number country: " + numberCountryCode);
     return (numberCountryCode == localCountryCode);
   }
 }
