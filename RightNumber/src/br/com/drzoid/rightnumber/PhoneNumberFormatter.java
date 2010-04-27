@@ -35,6 +35,16 @@ public class PhoneNumberFormatter {
    * @throws IllegalArgumentException if the number is invalid
    */
   public String formatPhoneNumber(String originalNumber, String originalCountry, String currentCountry) {
+    if (currentCountry.length() == 0) {
+      // If currentCountry is empty, it means we do not have a connection to the cell tower. In
+      // this case, just return the original number instead of crashing later.
+      // TODO: It would be way better if we could cache the value of currentCountry and use this
+      // cached value whenever we only lose signal temporarily. Unfortunately all our code is
+      // currently instantiated and destroyed in a per-call basis. 
+      Log.e(RightNumberConstants.LOG_TAG, "Could not obtain current country.");
+      return originalNumber;
+    }
+
     // Parses the phone number
     PhoneNumber parsedOriginalNumber = null;
     try {
@@ -44,7 +54,7 @@ public class PhoneNumberFormatter {
       Log.e(RightNumberConstants.LOG_TAG, "Error parsing number : " + originalNumber);
       return originalNumber;
     }
-
+        
     // Formats the new number.
     // The resulting format is either NATIONAL (if the number is from the current country),
     // INTERNATIONAL (if the current country is unknown) or the country-specific format
