@@ -64,14 +64,7 @@ public class CarrierCodes {
       // TODO: Check if this is true everywhere.
       return newNumber;
     }
-    
-    // TODO: Remove this as soon as 4004/3003 number handling in fixed in
-    // libphonenumber.
-    if (parsedOriginalNumber.getCountryCode() == 55 &&
-        (newNumber.startsWith("4004") || newNumber.startsWith("3003"))) {
-      return newNumber;
-    }
-    
+        
     if (nationalDialing && !requiresCarrier(dialingFrom)) {
       // National dialing, no carrier required
       Log.d(RightNumberConstants.LOG_TAG, "Local carrier not required");
@@ -85,7 +78,8 @@ public class CarrierCodes {
     }
 
     // Check if carrier use is enabled for the dialing country
-    if (!preferences.getBoolean(RightNumberConstants.ENABLE_CARRIER_BASE_KEY + dialingFrom, false)) {
+    if (!preferences.getBoolean(RightNumberConstants.ENABLE_CARRIER_BASE_KEY + dialingFrom,
+        false)) {
       Log.d(RightNumberConstants.LOG_TAG, "Carrier usage disabled for country " + dialingFrom);
       return newNumber;
     }
