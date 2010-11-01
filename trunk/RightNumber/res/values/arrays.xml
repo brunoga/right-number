@@ -43,55 +43,6 @@
 		<item>Oi</item>
 		<item>Telefonica/Vivo</item>
 		<item>TIM</item>
-
-		<!-- Every other (by code) -->
-		<item>LigueMAX</item>
-		<item>CTBC</item>
-		<item>Fonar</item>
-		<item>Viacom</item>
-		<item>Transit Telecom</item>
-		<item>Spin</item>
-		<item>Epsilon</item>
-		<item>Primeira Escolha</item>
-		<item>IDT</item>
-		<item>Aerotech</item>
-		<item>Alpamayo</item>
-		<item>T-LESTE TELECOM</item>
-		<item>Convergia</item>
-		<item>Teledados</item>
-		<item>Easytone</item>
-		<item>DSLI</item>
-		<item>Viper</item>
-		<item>GT Group</item>
-		<item>Sercomtel</item>
-		<item>Global Crossing(Impsat)</item>
-		<item>Hoje</item>
-		<item>BT Communications</item>
-		<item>Plenna</item>
-		<item>Cambridge</item>
-		<item>51 Brasil</item>
-		<item>LinkNET</item>
-		<item>Ostara</item>
-		<item>Telebit</item>
-		<item>Espas</item>
-		<item>Itavoice</item>
-		<item>Stellar</item>
-		<item>Nexus</item>
-		<item>OTS</item>
-		<item>Hello Brazil</item>
-		<item>Neotelecom</item>
-		<item>CGB VOIP</item>
-		<item>Redevox</item>
-		<item>Dollarphone</item>
-		<item>Locaweb</item>
-		<item>Vipway</item>
-		<item>Sermatel</item>
-		<item>BBT Brasil</item>
-		<item>Konecta</item>
-		<item>Falkland</item>
-		<item>Nebracam</item>
-		<item>Amigo</item>
-		<item>Alpha Nobilis</item>
 	</string-array>
 	<string-array name="carrier_codes_br">
 		<item>014</item>
@@ -101,54 +52,6 @@
 		<item>031</item>
 		<item>015</item>
 		<item>041</item>
-
-		<item>011</item>
-		<item>012</item>
-		<item>013</item>
-		<item>016</item>
-		<item>017</item>
-		<item>018</item>
-		<item>019</item>
-		<item>024</item>
-		<item>026</item>
-		<item>027</item>
-		<item>028</item>
-		<item>029</item>
-		<item>032</item>
-		<item>034</item>
-		<item>035</item>
-		<item>036</item>
-		<item>038</item>
-		<item>042</item>
-		<item>043</item>
-		<item>045</item>
-		<item>046</item>
-		<item>047</item>
-		<item>048</item>
-		<item>049</item>
-		<item>051</item>
-		<item>052</item>
-		<item>053</item>
-		<item>054</item>
-		<item>056</item>
-		<item>057</item>
-		<item>058</item>
-		<item>061</item>
-		<item>062</item>
-		<item>063</item>
-		<item>064</item>
-		<item>065</item>
-		<item>069</item>
-		<item>071</item>
-		<item>072</item>
-		<item>075</item>
-		<item>081</item>
-		<item>084</item>
-		<item>089</item>
-		<item>091</item>
-		<item>095</item>
-		<item>096</item>
-		<item>098</item>
 	</string-array>
 	<string-array name="int_carrier_codes_br">
 		<item>0014</item>
@@ -158,54 +61,6 @@
 		<item>0031</item>
 		<item>0015</item>
 		<item>0041</item>
-
-		<item>0011</item>
-		<item>0012</item>
-		<item>0013</item>
-		<item>0016</item>
-		<item>0017</item>
-		<item>0018</item>
-		<item>0019</item>
-		<item>0024</item>
-		<item>0026</item>
-		<item>0027</item>
-		<item>0028</item>
-		<item>0029</item>
-		<item>0032</item>
-		<item>0034</item>
-		<item>0035</item>
-		<item>0036</item>
-		<item>0038</item>
-		<item>0042</item>
-		<item>0043</item>
-		<item>0045</item>
-		<item>0046</item>
-		<item>0047</item>
-		<item>0048</item>
-		<item>0049</item>
-		<item>0051</item>
-		<item>0052</item>
-		<item>0053</item>
-		<item>0054</item>
-		<item>0056</item>
-		<item>0057</item>
-		<item>0058</item>
-		<item>0061</item>
-		<item>0062</item>
-		<item>0063</item>
-		<item>0064</item>
-		<item>0065</item>
-		<item>0069</item>
-		<item>0071</item>
-		<item>0072</item>
-		<item>0075</item>
-		<item>0081</item>
-		<item>0084</item>
-		<item>0089</item>
-		<item>0091</item>
-		<item>0095</item>
-		<item>0096</item>
-		<item>0098</item>
 	</string-array>
 
 	<!-- Colombia -->
