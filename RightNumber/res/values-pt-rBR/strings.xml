@@ -37,4 +37,7 @@
   <string name="international_carrier_summary">Seleciona a operadora que será usada para DDI.</string>
   <string name="default_carrier">Padrão</string>
   <string name="invalid_number">Número inválido para região. Usando sem modificação.</string>
+<string name="international_mode">Modo internacional</string>
+<string name="enable_international_mode_summary_on">Formatar números usando modo internacional.</string>
+<string name="enable_international_mode_summary_off">Formatar números usando modo local.</string>
 </resources>

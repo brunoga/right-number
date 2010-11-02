@@ -9,10 +9,18 @@
                       android:key="enable_formatting"
                       android:defaultValue="true" />
 
+  <CheckBoxPreference android:title="@string/international_mode"
+                      android:summaryOn="@string/enable_international_mode_summary_on"
+                      android:summaryOff="@string/enable_international_mode_summary_off"
+                      android:key="enable_international_mode"
+                      android:dependency="enable_formatting"
+                      android:defaultValue="false" />
+
   <!-- Special cases screen -->
   <PreferenceScreen android:title="@string/carriers_title"
                     android:summary="@string/carriers_summary"
-                    android:dependency="enable_formatting">
+                    android:dependency="enable_formatting"
+                    android:key="carriers">
     <PreferenceScreen android:title="@string/bolivia">
       <CheckBoxPreference android:title="@string/enable_carriers_title"
                           android:summaryOn="@string/enable_carriers_summary_on"
