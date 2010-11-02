@@ -43,4 +43,7 @@
   <string name="international_carrier_summary">Select the telephony carrier which will be used for international calls</string>
   <string name="default_carrier">Default</string>
   <string name="invalid_number">Invalid number for region. Using it as-is.</string>
+<string name="international_mode">International mode</string>
+<string name="enable_international_mode_summary_on">Format numbers using international mode.</string>
+<string name="enable_international_mode_summary_off">Format numbers using local mode.</string>
 </resources>
