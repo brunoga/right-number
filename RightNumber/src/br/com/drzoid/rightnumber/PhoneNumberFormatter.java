@@ -64,8 +64,14 @@ public class PhoneNumberFormatter {
       // Using international mode.
     	return phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
     }
-
-        
+    
+    // Check for quirks and apply them whenever necessary.
+    Quirks quirks = new Quirks(currentCountry);
+    String quirksResult = quirks.process(parsedOriginalNumber);
+    if (!quirksResult.equals("")) {
+    	return quirksResult;
+    }
+    
     // Formats the new number.
     // The resulting format is either NATIONAL (if the number is from the current country),
     // INTERNATIONAL (if the current country is unknown) or the country-specific format
