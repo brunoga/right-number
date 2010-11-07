@@ -3,11 +3,20 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:title="@string/prefs_title">
 
+  <br.com.drzoid.rightnumber.RightNumberHeaderPreference />
+
   <CheckBoxPreference android:title="@string/enable_formatting"
                       android:summaryOn="@string/enable_formatting_summary_on"
                       android:summaryOff="@string/enable_formatting_summary_off"
                       android:key="enable_formatting"
                       android:defaultValue="true" />
+                      
+  <CheckBoxPreference android:title="@string/use_priority_0_receiver"
+                      android:summaryOn="@string/use_priority_0_receiver_summary_on"
+                      android:summaryOff="@string/use_priority_0_receiver_summary_off"
+                      android:key="use_priority_0_receiver"
+                      android:dependency="enable_formatting"
+                      android:defaultValue="false" />
 
   <CheckBoxPreference android:title="@string/international_mode"
                       android:summaryOn="@string/enable_international_mode_summary_on"

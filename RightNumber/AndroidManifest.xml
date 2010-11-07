@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.drzoid.rightnumber" android:versionCode="4" android:versionName="0.4">
+    package="br.com.drzoid.rightnumber" android:versionCode="5" android:versionName="0.5">
 
   <application android:icon="@drawable/icon"
                android:label="@string/app_name">
@@ -15,18 +15,31 @@
     </activity>
     <activity android:name=".TestNumberActivity" />
 
-    <!-- Phone number changing receiver -->
-    <receiver android:name=".RightNumberReceiver">
+    <!-- Phone number changing receiver at priority 10 -->
+    <receiver android:name=".RightNumberReceiverPriority10">
 			<!--
 				Use a priority greater than zero, as we need to let broadcast
 				receivers that block calls be the last to receive the broadcast.
 			-->
-			<intent-filter android:priority="1">
+			<intent-filter android:priority="10">
 				<action android:name="android.intent.action.NEW_OUTGOING_CALL" />
 			</intent-filter>
     </receiver>
+    
+    <!-- Phone number changing receiver at priority 0 -->
+    <receiver android:name=".RightNumberReceiverPriority0">
+			<!--
+				Use a priority greater than zero, as we need to let broadcast
+				receivers that block calls be the last to receive the broadcast.
+			-->
+			<intent-filter android:priority="0">
+				<action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+			</intent-filter>
+    </receiver>
+    
   </application>
 
   <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 	<uses-sdk android:minSdkVersion="3"></uses-sdk>
+	
 </manifest>
