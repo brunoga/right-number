@@ -46,4 +46,7 @@
 <string name="international_mode">International mode</string>
 <string name="enable_international_mode_summary_on">Format numbers using international mode.</string>
 <string name="enable_international_mode_summary_off">Format numbers using local mode.</string>
+<string name="use_priority_0_receiver">Run as last</string>
+<string name="use_priority_0_receiver_summary_on">Will try to be the last one to process the number.</string>
+<string name="use_priority_0_receiver_summary_off">Will process numbers before the final number processing (preferred mode).</string>
 </resources>

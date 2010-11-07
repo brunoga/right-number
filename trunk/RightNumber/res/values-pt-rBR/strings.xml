@@ -40,4 +40,7 @@
 <string name="international_mode">Modo internacional</string>
 <string name="enable_international_mode_summary_on">Formatar números usando modo internacional.</string>
 <string name="enable_international_mode_summary_off">Formatar números usando modo local.</string>
+<string name="use_priority_0_receiver">Executar no final</string>
+<string name="use_priority_0_receiver_summary_on">Tenta ser o último a processar o número.</string>
+<string name="use_priority_0_receiver_summary_off">O número será processado antes do passo final (modo preferido).</string>
 </resources>
