@@ -46,6 +46,15 @@ public class RightNumberActivity extends PreferenceActivity {
         return true;
       }
     });
+
+    Preference changePreference = findPreference(RightNumberConstants.CHANGE_CONTACTS);
+    changePreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+      @Override
+      public boolean onPreferenceClick(Preference preference) {
+        new ContactChanger(RightNumberActivity.this).updateContacts();
+        return true;
+      }
+    });
   }
   
   @Override

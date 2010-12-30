@@ -241,8 +241,15 @@
                       android:dependency="carrier_enable_ve" />
     </PreferenceScreen>
   </PreferenceScreen>
+
   <Preference android:title="@string/test_formatting"
               android:summary="@string/test_formatting_summary"
               android:persistent="false"
               android:key="test_formatting" />
+
+  <Preference android:title="@string/change_contacts_to_international"
+              android:summary="@string/change_contacts_to_international_summary"
+              android:persistent="false"
+              android:key="change_contacts" />
+
 </PreferenceScreen>
