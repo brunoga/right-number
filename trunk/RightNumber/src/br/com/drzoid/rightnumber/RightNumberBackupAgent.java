@@ -24,7 +24,7 @@ import android.app.backup.SharedPreferencesBackupHelper;
  * @author rdamazio
  */
 public class RightNumberBackupAgent extends BackupAgentHelper {
-  private static final String PREFERENCES = "br.com.drzoid.rightnumber_preferences";
+  private static final String PREFERENCES = RightNumberConstants.RES_PACKAGE + "_preferences";
 
   @Override
   public void onCreate() {
