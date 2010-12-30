@@ -17,6 +17,15 @@
   <string name="test_formatted_blank_number">Digite um número acima para ver como ele seria formatado.</string>
   <string name="test_dialing_from">Discando do(a):</string>
   <string name="test_line_from">Usando uma linha do(a):</string>
+  <string name="change_contacts_to_international">Formatar telefones de contatos</string>
+  <string name="change_contacts_to_international_summary">Altera TODOS os seus contatos do Android para terem telefones no formato internacional (o Número Certo sabe usar esse formato para discagem local).</string>
+  <string name="change_contacts_confirm">TODOS os telefones de seus contatos serão atualizados para o formato internacional, que torna a discagem simples na maioria dos países com ou sem o Número Certo.\n\nVocê tem certeza?</string>
+  <string name="change_contacts_progress_title">Atualizando contatos</string>
+  <string name="change_contacts_progress_formatting">Formatando números...</string>
+  <string name="change_contacts_progress_applying">Salvando alterações...</string>
+  <string name="change_contacts_partial_failure">Alguns dos seus contatos podem não ter sido atualizados.</string>
+  <string name="change_contacts_cancelled">Operação cancelada. Alguns dos seus contatos podem não ter sido atualizados.</string>
+  <string name="change_contacts_success">Todos os contatos foram atualizados com sucesso.</string>
 
   <!-- Country names -->
   <string name="bolivia">Bolívia</string>

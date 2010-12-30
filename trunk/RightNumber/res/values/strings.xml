@@ -17,6 +17,15 @@
   <string name="test_formatted_blank_number">Type a number above to see how it would be formatted.</string>
   <string name="test_dialing_from">Dialing from:</string>
   <string name="test_line_from">Using a phone line from:</string>
+  <string name="change_contacts_to_international">Format all contacts\' numbers</string>
+  <string name="change_contacts_to_international_summary">This will change ALL your Android contacts to have phone numbers in the international format (Right Number will know how to use the result for dialing locally).</string>
+  <string name="change_contacts_confirm">We will update ALL your contacts\' phone numbers to international formats, which will make it simple to dial with or without Right Number from most countries.\n\nAre you sure?</string>
+  <string name="change_contacts_progress_title">Updating contacts</string>
+  <string name="change_contacts_progress_formatting">Formatting numbers...</string>
+  <string name="change_contacts_progress_applying">Saving changes...</string>
+  <string name="change_contacts_partial_failure">Some or all of your contacts were not updated.</string>
+  <string name="change_contacts_cancelled">Operation cancelled. Some of your contacts may not have been updated.</string>
+  <string name="change_contacts_success">All contacts updated successfully.</string>
 
   <!-- Country names -->
   <string name="bolivia">Bolivia</string>
