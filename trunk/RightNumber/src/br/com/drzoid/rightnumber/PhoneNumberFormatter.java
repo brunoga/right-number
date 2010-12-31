@@ -74,17 +74,22 @@ public class PhoneNumberFormatter {
       return originalNumber;
     }
     
+    if (!phoneNumberUtil.isValidNumber(parsedOriginalNumber)) {
+      String message = context.getString(R.string.invalid_number);
+      throw new IllegalArgumentException(message);    	
+    }
+    
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
     if (preferences.getBoolean(RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false)) {
       // Using international mode.
-    	return phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
+      return phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
     }
     
     // Check for quirks and apply them whenever necessary.
     Quirks quirks = new Quirks(currentCountry);
     String quirksResult = quirks.process(parsedOriginalNumber);
     if (!quirksResult.equals("")) {
-    	return quirksResult;
+      return quirksResult;
     }
     
     // Formats the new number.
@@ -92,14 +97,11 @@ public class PhoneNumberFormatter {
     // INTERNATIONAL (if the current country is unknown) or the country-specific format
     String newNumber = phoneNumberUtil.formatOutOfCountryCallingNumber(parsedOriginalNumber,
     		currentCountry);
-    if (phoneNumberUtil.isValidNumber(parsedOriginalNumber)) {
-      // Process cases not covered by the phone number utils library
-      newNumber = carrierCodes.reformatNumberForCountry(parsedOriginalNumber, newNumber,
-      		currentCountry);
-    } else {
-      String message = context.getString(R.string.invalid_number);
-      throw new IllegalArgumentException(message);
-    }
+
+    // Process cases not covered by the phone number utils library.
+    newNumber = carrierCodes.reformatNumberForCountry(parsedOriginalNumber, newNumber,
+    		currentCountry);
+
     return newNumber;
   }
 }

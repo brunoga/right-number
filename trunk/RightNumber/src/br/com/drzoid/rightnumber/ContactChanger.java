@@ -141,6 +141,13 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
         partialFailure = true;
         continue;
       }
+      
+      if (!phoneNumberUtil.isValidNumber(parsedNumber)) {
+      	// Phone number is not valid.
+        Log.e(RightNumberConstants.LOG_TAG, "Invalid number: " + number);
+        partialFailure = true;
+        continue;      	
+      }
 
       // Format it
       String newNumber = phoneNumberUtil.format(parsedNumber, PhoneNumberFormat.INTERNATIONAL);
