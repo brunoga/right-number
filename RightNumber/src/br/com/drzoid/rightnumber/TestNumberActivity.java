@@ -17,7 +17,9 @@ package br.com.drzoid.rightnumber;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -73,7 +75,7 @@ public class TestNumberActivity extends Activity {
     if (currentCountryIndex != -1) {
       dialingFrom.setSelection(currentCountryIndex);
     }
-
+    
     // Attach change listeners to update the formatted number
     inputText.addTextChangedListener(new TextWatcher() {
       public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -85,13 +87,13 @@ public class TestNumberActivity extends Activity {
       }
 
       public void afterTextChanged(Editable s) {
-        updateFormattedNumber();
+        updateFormattedNumber(getApplicationContext());
       }
     });
 
     OnItemSelectedListener spinnerListener = new Spinner.OnItemSelectedListener() {
       public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        updateFormattedNumber();
+        updateFormattedNumber(getApplicationContext());
       }
 
       public void onNothingSelected(AdapterView<?> arg0) {
@@ -120,10 +122,10 @@ public class TestNumberActivity extends Activity {
   }
 
   /**
-   * Updates the formatted number displayed ot the user based on the current
+   * Updates the formatted number displayed to the user based on the current
    * inputs.
    */
-  private void updateFormattedNumber() {
+  private void updateFormattedNumber(Context context) {
     errorView.setVisibility(View.GONE);
 
     String originalNumber = inputText.getText().toString();
@@ -140,9 +142,14 @@ public class TestNumberActivity extends Activity {
     Log.d(RightNumberConstants.LOG_TAG,
         "Number:" + originalNumber + "; from=" + fromCountryCode + "; line=" + lineCountryCode);
 
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    boolean internationalMode = preferences.getBoolean(
+    		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
+    
     String newNumber = originalNumber;
     try {
-      newNumber = formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode);
+      newNumber = formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode,
+      		internationalMode);
     } catch (IllegalArgumentException e) {
       errorView.setText(e.getMessage());
       errorView.setVisibility(View.VISIBLE);
