@@ -34,6 +34,9 @@
         <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
       </intent-filter>
     </receiver>
+
+    <meta-data android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAI-ugE8xpfRKx2A77au24PgzKS0jTAPc1irYqw4g" />
   </application>
 
   <!-- Permission for formatting phone numbers -->
