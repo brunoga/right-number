@@ -15,25 +15,22 @@
  */
 package br.com.drzoid.rightnumber;
 
-import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
-import android.content.ContentProviderOperation;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.OperationApplicationException;
 import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
-import android.os.RemoteException;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
+import br.com.drzoid.rightnumber.ContactAccessWrapper.OperationBatchBuilder;
 
 /**
  * Helper which can update all the user's contacts to international format.
@@ -93,8 +90,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     updatingCancelled.set(false);
 
     // Query for all phone numbers
-    ContactAccessWrapper contactAccess = ContactAccessWrapper.create();
-    // TODO: This requires API level 5
+    ContactAccessWrapper contactAccess = ContactAccessWrapper.create(context);
     ContentResolver contentResolver = context.getContentResolver();
     Cursor cursor = contentResolver.query(contactAccess.getPhoneUri(),
         new String[] { contactAccess.getPhoneIdColumn(), contactAccess.getPhoneNumberColumn() },
@@ -115,8 +111,8 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
     PhoneNumberFormatter phoneNumberFormatter = new PhoneNumberFormatter(context);
-    final ArrayList<ContentProviderOperation> changes =
-        new ArrayList<ContentProviderOperation>(numPhoneNumbers);
+    OperationBatchBuilder batchBuilder =
+        contactAccess.newBatchBuilder(Math.min(numPhoneNumbers, 1000));
 
     boolean partialFailure = false;
     while (!updatingCancelled.get() && cursor.moveToNext()) {
@@ -133,7 +129,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
       	newNumber = phoneNumberFormatter.formatPhoneNumber(number, originalCountry,
       		originalCountry, true);
       } catch (IllegalArgumentException e) {
-      	Log.e(RightNumberConstants.LOG_TAG, "Invalid number: " + number, e);
+      	Log.w(RightNumberConstants.LOG_TAG, "Invalid number: " + number, e);
       	partialFailure = true;
       	continue;
       }
@@ -152,18 +148,21 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
       // Create the update operation
       Log.d(RightNumberConstants.LOG_TAG,
           "Updating number: id=" + numberId + "; old=" + number + "; new=" + newNumber);
-      changes.add(ContentProviderOperation.newUpdate(updateUri)
-          .withValue(contactAccess.getPhoneNumberColumn(), newNumber)
-          .build());
+      partialFailure |= !batchBuilder.addUpdate(
+          updateUri, contactAccess.getPhoneNumberColumn(), newNumber);
 
       // Apply every 1000 changes.
-      if (changes.size() >= 1000) {
-        partialFailure |= !applyChanges(changes, contactAccess, contentResolver, progressDialog);
+      if (batchBuilder.getNumPendingChanges() >= 1000) {
+        setProgressMessage(progressDialog, R.string.change_contacts_progress_applying);
+        partialFailure |= !batchBuilder.apply();
+        setProgressMessage(progressDialog, R.string.change_contacts_progress_formatting);
       }
     }
 
     // Apply any remaining changes
-    partialFailure |= !applyChanges(changes, contactAccess, contentResolver, progressDialog);
+    setProgressMessage(progressDialog, R.string.change_contacts_progress_applying);
+    partialFailure |= !batchBuilder.apply();
+    setProgressMessage(progressDialog, R.string.change_contacts_progress_formatting);
 
     // All done.
     cursor.close();
@@ -174,33 +173,6 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     } else {
       showToast(R.string.change_contacts_success);
     }
-  }
-
-  private boolean applyChanges(ArrayList<ContentProviderOperation> changes,
-      ContactAccessWrapper contactAccess, ContentResolver contentResolver,
-      ProgressDialog progressDialog) {
-    if (changes.isEmpty()) return true;
-
-    setProgressMessage(progressDialog, R.string.change_contacts_progress_applying);
-
-    boolean success = true;
-    try {
-      Log.d(RightNumberConstants.LOG_TAG, "Applying " + changes.size() + " changes");
-      contentResolver.applyBatch(contactAccess.getAuthority(), changes);
-      Log.d(RightNumberConstants.LOG_TAG, "Changes applied");
-    } catch (RemoteException e) {
-      Log.e(RightNumberConstants.LOG_TAG, "Failed to apply changes", e);
-      success = false;
-    } catch (OperationApplicationException e) {
-      Log.e(RightNumberConstants.LOG_TAG, "Failed to apply changes", e);
-      success = false;
-    }
-
-    changes.clear();
-
-    setProgressMessage(progressDialog, R.string.change_contacts_progress_formatting);
-
-    return success;
   }
 
   @Override
