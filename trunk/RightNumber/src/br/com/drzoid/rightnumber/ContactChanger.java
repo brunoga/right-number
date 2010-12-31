@@ -119,7 +119,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     TelephonyManager telephonyManager =
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
-    PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
+    PhoneNumberFormatter phoneNumberFormatter = new PhoneNumberFormatter(context);
     final ArrayList<ContentProviderOperation> changes =
         new ArrayList<ContentProviderOperation>(numPhoneNumbers);
 
@@ -132,25 +132,16 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
       int columnIdx = cursor.getColumnIndexOrThrow(contactAccess.getPhoneNumberColumn());
       String number = cursor.getString(columnIdx);
 
-      // Parse it
-      PhoneNumber parsedNumber;
+      // Parse it.
+      String newNumber;
       try {
-        parsedNumber = phoneNumberUtil.parse(number, originalCountry);
-      } catch (NumberParseException e) {
-        Log.e(RightNumberConstants.LOG_TAG, "Unable to parse number: " + number, e);
-        partialFailure = true;
-        continue;
+      	newNumber = phoneNumberFormatter.formatPhoneNumber(number, originalCountry,
+      		originalCountry, true);
+      } catch (IllegalArgumentException e) {
+      	Log.e(RightNumberConstants.LOG_TAG, "Invalid number: " + number, e);
+      	partialFailure = true;
+      	continue;
       }
-      
-      if (!phoneNumberUtil.isValidNumber(parsedNumber)) {
-      	// Phone number is not valid.
-        Log.e(RightNumberConstants.LOG_TAG, "Invalid number: " + number);
-        partialFailure = true;
-        continue;      	
-      }
-
-      // Format it
-      String newNumber = phoneNumberUtil.format(parsedNumber, PhoneNumberFormat.INTERNATIONAL);
       
       if (newNumber.equals(number)) {
         // Nothing to do.

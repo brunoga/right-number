@@ -53,7 +53,7 @@ public class PhoneNumberFormatter {
    * @throws IllegalArgumentException if the number is invalid
    */
   public String formatPhoneNumber(String originalNumber, String originalCountry,
-  		String currentCountry) {
+  		String currentCountry, boolean internationalMode) {
     if (currentCountry.length() == 0) {
       // If currentCountry is empty, it means we do not have a connection to the cell tower. In
       // this case, just return the original number instead of crashing later.
@@ -79,8 +79,7 @@ public class PhoneNumberFormatter {
       throw new IllegalArgumentException(message);    	
     }
     
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    if (preferences.getBoolean(RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false)) {
+    if (internationalMode) {
       // Using international mode.
       return phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
     }

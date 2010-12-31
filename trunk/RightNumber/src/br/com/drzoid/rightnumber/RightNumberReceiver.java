@@ -35,7 +35,7 @@ public class RightNumberReceiver extends BroadcastReceiver {
       // Formatting disabled, do nothing
       return;
     }
-
+    
     TelephonyManager telephonyManager =
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -50,9 +50,14 @@ public class RightNumberReceiver extends BroadcastReceiver {
     }
 
     PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
+    
+    boolean internationalMode = preferences.getBoolean(
+    		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
+
     String newNumber = originalNumber;
     try {
-      newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry);
+      newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry,
+      		internationalMode);
     } catch (IllegalArgumentException e) {
       Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
