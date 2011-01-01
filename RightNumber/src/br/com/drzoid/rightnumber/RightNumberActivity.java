@@ -15,19 +15,13 @@
  */
 package br.com.drzoid.rightnumber;
 
-import java.util.List;
-
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.util.Log;
-import android.util.LogPrinter;
 
 /**
  * The main activity, which shows RightNumber preferences.
