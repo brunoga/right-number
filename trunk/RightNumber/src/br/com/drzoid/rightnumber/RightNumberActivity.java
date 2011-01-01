@@ -78,12 +78,6 @@ public class RightNumberActivity extends PreferenceActivity {
   		carriersPreferenceScreen.setEnabled(false);
   	} else {
   		carriersPreferenceScreen.setEnabled(true);
-  	}
-  	
-  	PackageManager pm = getPackageManager();
-  	List<ResolveInfo> receiverInfo = pm.queryBroadcastReceivers(new Intent(Intent.ACTION_NEW_OUTGOING_CALL), 0);
-  	for (ResolveInfo receiver: receiverInfo) {
-  		receiver.dump(new LogPrinter(Log.INFO, "DUMP : "), "");
-  	}
+  	}  	
   }
 }
