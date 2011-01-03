@@ -16,17 +16,20 @@
 package br.com.drzoid.rightnumber;
 
 import android.content.Intent;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceClickListener;
 
 /**
  * The main activity, which shows RightNumber preferences.
  */
 public class RightNumberActivity extends PreferenceActivity {
+  private OnSharedPreferenceChangeListener backupListener;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -72,6 +75,24 @@ public class RightNumberActivity extends PreferenceActivity {
   		carriersPreferenceScreen.setEnabled(false);
   	} else {
   		carriersPreferenceScreen.setEnabled(true);
-  	}  	
+  	}
+
+    // Attach backup listener if available.
+    if (RightNumberConstants.ANDROID_API_LEVEL >= 8) {
+      backupListener = new RightNumberBackupPreferenceListener();
+      getPreferenceManager().getSharedPreferences()
+          .registerOnSharedPreferenceChangeListener(backupListener);
+    }
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+
+    // Detach backup listener if it was attached.
+    if (backupListener != null) {
+      getPreferenceManager().getSharedPreferences()
+          .unregisterOnSharedPreferenceChangeListener(backupListener);
+    }
   }
 }
