@@ -112,7 +112,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
     PhoneNumberFormatter phoneNumberFormatter = new PhoneNumberFormatter(context);
     OperationBatchBuilder batchBuilder =
-        contactAccess.newBatchBuilder(Math.min(numPhoneNumbers, 1000));
+        contactAccess.newBatchBuilder(Math.min(numPhoneNumbers, 100));
 
     boolean partialFailure = false;
     while (!updatingCancelled.get() && cursor.moveToNext()) {
@@ -151,8 +151,8 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
       partialFailure |= !batchBuilder.addUpdate(
           updateUri, contactAccess.getPhoneNumberColumn(), newNumber);
 
-      // Apply every 1000 changes.
-      if (batchBuilder.getNumPendingChanges() >= 1000) {
+      // Apply every 100 changes.
+      if (batchBuilder.getNumPendingChanges() >= 100) {
         setProgressMessage(progressDialog, R.string.change_contacts_progress_applying);
         partialFailure |= !batchBuilder.apply();
         setProgressMessage(progressDialog, R.string.change_contacts_progress_formatting);
