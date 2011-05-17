@@ -1,251 +1,500 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-	<string-array name="country_names">
-		<item>Afeganistão</item>
-		<item>Ilhas Åland</item>
-		<item>Albânia</item>
-		<item>Algéria</item>
-		<item>Samoa Americana</item>
-		<item>Andorra</item>
-		<item>Angola</item>
-		<item>Anguilha</item>
-		<item>Antártica</item>
-		<item>Antígua e Barbuda</item>
-		<item>Argentina</item>
-		<item>Armênia</item>
-		<item>Aruba</item>
-		<item>Austrália</item>
-		<item>Áustria</item>
-		<item>Azerbaijão</item>
-		<item>Bahamas</item>
-		<item>Bahrein</item>
-		<item>Bangladesh</item>
-		<item>Barbados</item>
-		<item>Bielorússia</item>
-		<item>Bélgica</item>
-		<item>Belize</item>
-		<item>Benim</item>
-		<item>Bermuda</item>
-		<item>Butão</item>
-		<item>Bolívia</item>
-		<item>Bósnia e Herzegovina</item>
-		<item>Botswana</item>
-		<item>Ilha Bouvet</item>
-		<item>Brasil</item>
-		<item>Território Britânico do Oceano Índico</item>
-		<item>Brunei</item>
-		<item>Bulgária</item>
-		<item>Burkina Faso</item>
-		<item>Burundi</item>
-		<item>Camboja</item>
-		<item>Camarões</item>
-		<item>Canadá</item>
-		<item>Cabo Verde</item>
-		<item>Ilhas Caimã</item>
-		<item>Republica Centro-Africana</item>
-		<item>Chade</item>
-		<item>Chile</item>
-		<item>China</item>
-		<item>Ilha Christmas</item>
-		<item>Ilhas Cocos (Keeling)</item>
-		<item>Colômbia</item>
-		<item>Comores</item>
-		<item>Congo</item>
-		<item>República Democrática do Congo</item>
-		<item>Ilhas Cook</item>
-		<item>Costa Rica</item>
-		<item>Costa do Marfim</item>
-		<item>Croácia</item>
-		<item>Cuba</item>
-		<item>Chipre</item>
-		<item>República Tcheca</item>
-		<item>Dinamarca</item>
-		<item>Djibouti</item>
-		<item>Dominica</item>
-		<item>República Dominicana</item>
-		<item>Equador</item>
-		<item>Egito</item>
-		<item>El Salvador</item>
-		<item>Guinéa Equatorial</item>
-		<item>Eritreia</item>
-		<item>Estônia</item>
-		<item>Etiópia</item>
-		<item>Ilhas Malvinas</item>
-		<item>Ilhs Feroe</item>
-		<item>Fiji</item>
-		<item>Finlândia</item>
-		<item>França</item>
-		<item>Guiana Francesa</item>
-		<item>Polinésia Francesa</item>
-		<item>Terras Austrais e Antárticas Francesas</item>
-		<item>Gabão</item>
-		<item>Gâmbia</item>
-		<item>Georgia</item>
-		<item>Alemanha</item>
-		<item>Gana</item>
-		<item>Gibraltar</item>
-		<item>Grécia</item>
-		<item>Greenland</item>
-		<item>Granada</item>
-		<item>Guadalupe</item>
-		<item>Guam</item>
-		<item>Guatemala</item>
-		<item>Guernsey</item>
-		<item>Guiné</item>
-		<item>Guiné-Bissau</item>
-		<item>Guiana</item>
-		<item>Haiti</item>
-		<item>Ilha Heard e Ilhas McDonald</item>
-		<item>Honduras</item>
-		<item>Hong Kong</item>
-		<item>Hungria</item>
-		<item>Islândia</item>
-		<item>Índia</item>
-		<item>Indonésia</item>
-		<item>Iran</item>
-		<item>Iraque</item>
-		<item>Irlanda</item>
-		<item>Ilha de Man</item>
-		<item>Israel</item>
-		<item>Itália</item>
-		<item>Jamaica</item>
-		<item>Japão</item>
-		<item>Jersey</item>
-		<item>Jordão</item>
-		<item>Cazaquistão</item>
-		<item>Quênia</item>
-		<item>Kiribati</item>
-		<item>República Democrática Popular da Coreia</item>
-		<item>República da Coréia</item>
-		<item>Kuwait</item>
-		<item>Quirguistão</item>
-		<item>República Democrática Popular do Laos</item>
-		<item>Letónia</item>
-		<item>Lébano</item>
-		<item>Lesoto</item>
-		<item>Libéria</item>
-		<item>Líbia</item>
-		<item>Liechtenstein</item>
-		<item>Lituânia</item>
-		<item>Luxemburgo</item>
-		<item>Macau</item>
-		<item>Macedônia</item>
-		<item>Madagascar</item>
-		<item>Malawi</item>
-		<item>Malásia</item>
-		<item>Maldivas</item>
-		<item>Mali</item>
-		<item>Malta</item>
-		<item>Ilhas Marshall</item>
-		<item>Martinica</item>
-		<item>Mauritânia</item>
-		<item>Maurícia</item>
-		<item>Mayotte</item>
-		<item>México</item>
-		<item>Micronésia</item>
-		<item>Moldávia</item>
-		<item>Mônaco</item>
-		<item>Mongólia</item>
-		<item>Montenegro</item>
-		<item>Montserrat</item>
-		<item>Marrocos</item>
-		<item>Moçambique</item>
-		<item>Myanmar</item>
-		<item>Namíbia</item>
-		<item>Nauru</item>
-		<item>Nepal</item>
-		<item>Holanda</item>
-		<item>Antilhas Holandesas</item>
-		<item>Nova Caledônia</item>
-		<item>Nova Zelândia</item>
-		<item>Nicarágua</item>
-		<item>Níger</item>
-		<item>Nigéria</item>
-		<item>Niue</item>
-		<item>Ilha Norfolk</item>
-		<item>Ilhas Mariana do Norte</item>
-		<item>Noruega</item>
-		<item>Omã</item>
-		<item>Paquistão</item>
-		<item>Palau</item>
-		<item>Território Palestino Ocupado</item>
-		<item>Panamá</item>
-		<item>Papua-Nova Guiné</item>
-		<item>Paraguai</item>
-		<item>Peru</item>
-		<item>Filipinas</item>
-		<item>Ilhas Pitcairn</item>
-		<item>Polônia</item>
-		<item>Portugal</item>
-		<item>Porto Rico</item>
-		<item>Qatar</item>
-		<item>Réunion</item>
-		<item>Romênia</item>
-		<item>federação Russa</item>
-		<item>Ruanda</item>
-		<item>Saint BarthÉlemy</item>
-		<item>Santa Helena, Ascensão e Tristão da Cunha</item>
-		<item>São Cristóvão e Nevis</item>
-		<item>Santa Lúcia</item>
-		<item>São Martin</item>
-		<item>Saint Pierre e Miquelon</item>
-		<item>São Vicente e Granadinas</item>
-		<item>Samoa</item>
-		<item>San Marino</item>
-		<item>São Tomé e Príncipe</item>
-		<item>Arábia Saudita</item>
-		<item>Senegal</item>
-		<item>Sérvia</item>
-		<item>Seychelles</item>
-		<item>Serra Leoa</item>
-		<item>Singapura</item>
-		<item>Eslováquia</item>
-		<item>Eslovênia</item>
-		<item>Ilhas Salomão</item>
-		<item>Somália</item>
-		<item>África do Sul</item>
-		<item>Ilhas Geórgia do Sul e Sandwich do Sul</item>
-		<item>Espanha</item>
-		<item>Sri Lanka</item>
-		<item>Sudão</item>
-		<item>Suriname</item>
-		<item>Svalbard e Jan Mayen</item>
-		<item>Suazilândia</item>
-		<item>Suécia</item>
-		<item>Suíça</item>
-		<item>Síria</item>
-		<item>Taiwan</item>
-		<item>Tadjiquistão</item>
-		<item>Tanzânia</item>
-		<item>Tailândia</item>
-		<item>Timor-Leste</item>
-		<item>Togo</item>
-		<item>Tokelau</item>
-		<item>Tonga</item>
-		<item>Trinidad e Tobago</item>
-		<item>Tunísia</item>
-		<item>Turquia</item>
-		<item>Turquemenistão</item>
-		<item>Turks e Caicos</item>
-		<item>Tuvalu</item>
-		<item>Uganda</item>
-		<item>Ucrânia</item>
-		<item>Emirados Árabes Unidos</item>
-		<item>Reino Unido</item>
-		<item>Estados Unidos</item>
-		<item>Ilhas Menores Distantes dos Estados Unidos</item>
-		<item>Uruguai</item>
-		<item>Uzbequistão</item>
-		<item>Vanuatu</item>
-		<item>Cidade do Vaticano</item>
-		<item>Venezuela</item>
-		<item>Vietnam</item>
-		<item>Ilhas Virgens Britânicas</item>
-		<item>Ilhas Virgens Americanas</item>
-		<item>Wallis e Futuna</item>
-		<item>Saara Ocidental</item>
-		<item>Iêmen</item>
-		<item>Zâmbia</item>
-		<item>Zimbabwe</item>
-	</string-array>
+  <string-array name="country_names">
+    <item>Afeganistão</item>
+    <item>África do Sul</item>
+    <item>Albânia</item>
+    <item>Alemanha</item>
+    <item>Algéria</item>
+    <item>Andorra</item>
+    <item>Angola</item>
+    <item>Anguilha</item>
+    <item>Antilhas Holandesas</item>
+    <item>Antártica</item>
+    <item>Antígua e Barbuda</item>
+    <item>Argentina</item>
+    <item>Armênia</item>
+    <item>Aruba</item>
+    <item>Arábia Saudita</item>
+    <item>Austrália</item>
+    <item>Áustria</item>
+    <item>Azerbaijão</item>
+    <item>Bahamas</item>
+    <item>Bahrein</item>
+    <item>Bangladesh</item>
+    <item>Barbados</item>
+    <item>Belize</item>
+    <item>Benim</item>
+    <item>Bermuda</item>
+    <item>Bielorússia</item>
+    <item>Bolívia</item>
+    <item>Botswana</item>
+    <item>Brasil</item>
+    <item>Brunei</item>
+    <item>Bulgária</item>
+    <item>Burkina Faso</item>
+    <item>Burundi</item>
+    <item>Butão</item>
+    <item>Bélgica</item>
+    <item>Bósnia e Herzegovina</item>
+    <item>Cabo Verde</item>
+    <item>Camarões</item>
+    <item>Camboja</item>
+    <item>Canadá</item>
+    <item>Cazaquistão</item>
+    <item>Chade</item>
+    <item>Chile</item>
+    <item>China</item>
+    <item>Chipre</item>
+    <item>Cidade do Vaticano</item>
+    <item>Colômbia</item>
+    <item>Comores</item>
+    <item>Congo</item>
+    <item>Costa Rica</item>
+    <item>Costa do Marfim</item>
+    <item>Croácia</item>
+    <item>Cuba</item>
+    <item>Dinamarca</item>
+    <item>Djibouti</item>
+    <item>Dominica</item>
+    <item>Egito</item>
+    <item>El Salvador</item>
+    <item>Emirados Árabes Unidos</item>
+    <item>Equador</item>
+    <item>Eritreia</item>
+    <item>Eslováquia</item>
+    <item>Eslovênia</item>
+    <item>Espanha</item>
+    <item>Estados Unidos</item>
+    <item>Estônia</item>
+    <item>Etiópia</item>
+    <item>Fiji</item>
+    <item>Filipinas</item>
+    <item>Finlândia</item>
+    <item>França</item>
+    <item>Gabão</item>
+    <item>Gana</item>
+    <item>Georgia</item>
+    <item>Gibraltar</item>
+    <item>Granada</item>
+    <item>Greenland</item>
+    <item>Grécia</item>
+    <item>Guadalupe</item>
+    <item>Guam</item>
+    <item>Guatemala</item>
+    <item>Guernsey</item>
+    <item>Guiana</item>
+    <item>Guiana Francesa</item>
+    <item>Guiné</item>
+    <item>Guiné-Bissau</item>
+    <item>Guinéa Equatorial</item>
+    <item>Gâmbia</item>
+    <item>Haiti</item>
+    <item>Holanda</item>
+    <item>Honduras</item>
+    <item>Hong Kong</item>
+    <item>Hungria</item>
+    <item>Ilha Bouvet</item>
+    <item>Ilha Christmas</item>
+    <item>Ilha Heard e Ilhas McDonald</item>
+    <item>Ilha Norfolk</item>
+    <item>Ilha de Man</item>
+    <item>Ilhas Caimã</item>
+    <item>Ilhas Cocos (Keeling)</item>
+    <item>Ilhas Cook</item>
+    <item>Ilhas Geórgia do Sul e Sandwich do Sul</item>
+    <item>Ilhas Malvinas</item>
+    <item>Ilhas Mariana do Norte</item>
+    <item>Ilhas Marshall</item>
+    <item>Ilhas Menores Distantes dos Estados Unidos</item>
+    <item>Ilhas Pitcairn</item>
+    <item>Ilhas Salomão</item>
+    <item>Ilhas Virgens Americanas</item>
+    <item>Ilhas Virgens Britânicas</item>
+    <item>Ilhas Åland</item>
+    <item>Ilhs Feroe</item>
+    <item>Índia</item>
+    <item>Indonésia</item>
+    <item>Iran</item>
+    <item>Iraque</item>
+    <item>Irlanda</item>
+    <item>Islândia</item>
+    <item>Israel</item>
+    <item>Itália</item>
+    <item>Iêmen</item>
+    <item>Jamaica</item>
+    <item>Japão</item>
+    <item>Jersey</item>
+    <item>Jordão</item>
+    <item>Kiribati</item>
+    <item>Kuwait</item>
+    <item>Lesoto</item>
+    <item>Letónia</item>
+    <item>Libéria</item>
+    <item>Liechtenstein</item>
+    <item>Lituânia</item>
+    <item>Luxemburgo</item>
+    <item>Lébano</item>
+    <item>Líbia</item>
+    <item>Macau</item>
+    <item>Macedônia</item>
+    <item>Madagascar</item>
+    <item>Malawi</item>
+    <item>Maldivas</item>
+    <item>Mali</item>
+    <item>Malta</item>
+    <item>Malásia</item>
+    <item>Marrocos</item>
+    <item>Martinica</item>
+    <item>Mauritânia</item>
+    <item>Maurícia</item>
+    <item>Mayotte</item>
+    <item>Micronésia</item>
+    <item>Moldávia</item>
+    <item>Mongólia</item>
+    <item>Montenegro</item>
+    <item>Montserrat</item>
+    <item>Moçambique</item>
+    <item>Myanmar</item>
+    <item>México</item>
+    <item>Mônaco</item>
+    <item>Namíbia</item>
+    <item>Nauru</item>
+    <item>Nepal</item>
+    <item>Nicarágua</item>
+    <item>Nigéria</item>
+    <item>Niue</item>
+    <item>Noruega</item>
+    <item>Nova Caledônia</item>
+    <item>Nova Zelândia</item>
+    <item>Níger</item>
+    <item>Omã</item>
+    <item>Palau</item>
+    <item>Panamá</item>
+    <item>Papua-Nova Guiné</item>
+    <item>Paquistão</item>
+    <item>Paraguai</item>
+    <item>Peru</item>
+    <item>Polinésia Francesa</item>
+    <item>Polônia</item>
+    <item>Porto Rico</item>
+    <item>Portugal</item>
+    <item>Qatar</item>
+    <item>Quirguistão</item>
+    <item>Quênia</item>
+    <item>Reino Unido</item>
+    <item>Republica Centro-Africana</item>
+    <item>República Democrática Popular da Coreia</item>
+    <item>República Democrática Popular do Laos</item>
+    <item>República Democrática do Congo</item>
+    <item>República Dominicana</item>
+    <item>República Tcheca</item>
+    <item>República da Coréia</item>
+    <item>Romênia</item>
+    <item>Ruanda</item>
+    <item>Rússia</item>
+    <item>Réunion</item>
+    <item>Saara Ocidental</item>
+    <item>Saint Barthélemy</item>
+    <item>Saint Pierre e Miquelon</item>
+    <item>Samoa</item>
+    <item>Samoa Americana</item>
+    <item>San Marino</item>
+    <item>Santa Helena, Ascensão e Tristão da Cunha</item>
+    <item>Santa Lúcia</item>
+    <item>Senegal</item>
+    <item>Serra Leoa</item>
+    <item>Seychelles</item>
+    <item>Singapura</item>
+    <item>Somália</item>
+    <item>Sri Lanka</item>
+    <item>Suazilândia</item>
+    <item>Sudão</item>
+    <item>Suriname</item>
+    <item>Suécia</item>
+    <item>Suíça</item>
+    <item>Svalbard e Jan Mayen</item>
+    <item>São Cristóvão e Nevis</item>
+    <item>São Martin</item>
+    <item>São Tomé e Príncipe</item>
+    <item>São Vicente e Granadinas</item>
+    <item>Sérvia</item>
+    <item>Síria</item>
+    <item>Tadjiquistão</item>
+    <item>Tailândia</item>
+    <item>Taiwan</item>
+    <item>Tanzânia</item>
+    <item>Terras Austrais e Antárticas Francesas</item>
+    <item>Território Britânico do Oceano Índico</item>
+    <item>Território Palestino Ocupado</item>
+    <item>Timor-Leste</item>
+    <item>Togo</item>
+    <item>Tokelau</item>
+    <item>Tonga</item>
+    <item>Trinidad e Tobago</item>
+    <item>Tunísia</item>
+    <item>Turks e Caicos</item>
+    <item>Turquemenistão</item>
+    <item>Turquia</item>
+    <item>Tuvalu</item>
+    <item>Ucrânia</item>
+    <item>Uganda</item>
+    <item>Uruguai</item>
+    <item>Uzbequistão</item>
+    <item>Vanuatu</item>
+    <item>Venezuela</item>
+    <item>Vietnam</item>
+    <item>Wallis e Futuna</item>
+    <item>Zimbabwe</item>
+    <item>Zâmbia</item>
+  </string-array>
+
+  <string-array name="country_codes">
+    <item>AF</item>
+    <item>ZA</item>
+    <item>AL</item>
+    <item>DE</item>
+    <item>DZ</item>
+    <item>AD</item>
+    <item>AO</item>
+    <item>AI</item>
+    <item>AN</item>
+    <item>AQ</item>
+    <item>AG</item>
+    <item>AR</item>
+    <item>AM</item>
+    <item>AW</item>
+    <item>SA</item>
+    <item>AU</item>
+    <item>AT</item>
+    <item>AZ</item>
+    <item>BS</item>
+    <item>BH</item>
+    <item>BD</item>
+    <item>BB</item>
+    <item>BZ</item>
+    <item>BJ</item>
+    <item>BM</item>
+    <item>BY</item>
+    <item>BO</item>
+    <item>BW</item>
+    <item>BR</item>
+    <item>BN</item>
+    <item>BG</item>
+    <item>BF</item>
+    <item>BI</item>
+    <item>BT</item>
+    <item>BE</item>
+    <item>BA</item>
+    <item>CV</item>
+    <item>CM</item>
+    <item>KH</item>
+    <item>CA</item>
+    <item>KZ</item>
+    <item>TD</item>
+    <item>CL</item>
+    <item>CN</item>
+    <item>CY</item>
+    <item>VA</item>
+    <item>CO</item>
+    <item>KM</item>
+    <item>CG</item>
+    <item>CR</item>
+    <item>CI</item>
+    <item>HR</item>
+    <item>CU</item>
+    <item>DK</item>
+    <item>DJ</item>
+    <item>DM</item>
+    <item>EG</item>
+    <item>SV</item>
+    <item>AE</item>
+    <item>EC</item>
+    <item>ER</item>
+    <item>SK</item>
+    <item>SI</item>
+    <item>ES</item>
+    <item>US</item>
+    <item>EE</item>
+    <item>ET</item>
+    <item>FJ</item>
+    <item>PH</item>
+    <item>FI</item>
+    <item>FR</item>
+    <item>GA</item>
+    <item>GH</item>
+    <item>GE</item>
+    <item>GI</item>
+    <item>GD</item>
+    <item>GL</item>
+    <item>GR</item>
+    <item>GP</item>
+    <item>GU</item>
+    <item>GT</item>
+    <item>GG</item>
+    <item>GY</item>
+    <item>GF</item>
+    <item>GN</item>
+    <item>GW</item>
+    <item>GQ</item>
+    <item>GM</item>
+    <item>HT</item>
+    <item>NL</item>
+    <item>HN</item>
+    <item>HK</item>
+    <item>HU</item>
+    <item>BV</item>
+    <item>CX</item>
+    <item>HM</item>
+    <item>NF</item>
+    <item>IM</item>
+    <item>KY</item>
+    <item>CC</item>
+    <item>CK</item>
+    <item>GS</item>
+    <item>FK</item>
+    <item>MP</item>
+    <item>MH</item>
+    <item>UM</item>
+    <item>PN</item>
+    <item>SB</item>
+    <item>VI</item>
+    <item>VG</item>
+    <item>AX</item>
+    <item>FO</item>
+    <item>IN</item>
+    <item>ID</item>
+    <item>IR</item>
+    <item>IQ</item>
+    <item>IE</item>
+    <item>IS</item>
+    <item>IL</item>
+    <item>IT</item>
+    <item>YE</item>
+    <item>JM</item>
+    <item>JP</item>
+    <item>JE</item>
+    <item>JO</item>
+    <item>KI</item>
+    <item>KW</item>
+    <item>LS</item>
+    <item>LV</item>
+    <item>LR</item>
+    <item>LI</item>
+    <item>LT</item>
+    <item>LU</item>
+    <item>LB</item>
+    <item>LY</item>
+    <item>MO</item>
+    <item>MK</item>
+    <item>MG</item>
+    <item>MW</item>
+    <item>MV</item>
+    <item>ML</item>
+    <item>MT</item>
+    <item>MY</item>
+    <item>MA</item>
+    <item>MQ</item>
+    <item>MR</item>
+    <item>MU</item>
+    <item>YT</item>
+    <item>FM</item>
+    <item>MD</item>
+    <item>MN</item>
+    <item>ME</item>
+    <item>MS</item>
+    <item>MZ</item>
+    <item>MM</item>
+    <item>MX</item>
+    <item>MC</item>
+    <item>NA</item>
+    <item>NR</item>
+    <item>NP</item>
+    <item>NI</item>
+    <item>NG</item>
+    <item>NU</item>
+    <item>NO</item>
+    <item>NC</item>
+    <item>NZ</item>
+    <item>NE</item>
+    <item>OM</item>
+    <item>PW</item>
+    <item>PA</item>
+    <item>PG</item>
+    <item>PK</item>
+    <item>PY</item>
+    <item>PE</item>
+    <item>PF</item>
+    <item>PL</item>
+    <item>PR</item>
+    <item>PT</item>
+    <item>QA</item>
+    <item>KG</item>
+    <item>KE</item>
+    <item>GB</item>
+    <item>CF</item>
+    <item>KP</item>
+    <item>LA</item>
+    <item>CD</item>
+    <item>DO</item>
+    <item>CZ</item>
+    <item>KR</item>
+    <item>RO</item>
+    <item>RW</item>
+    <item>RU</item>
+    <item>RE</item>
+    <item>EH</item>
+    <item>BL</item>
+    <item>PM</item>
+    <item>WS</item>
+    <item>AS</item>
+    <item>SM</item>
+    <item>SH</item>
+    <item>LC</item>
+    <item>SN</item>
+    <item>SL</item>
+    <item>SC</item>
+    <item>SG</item>
+    <item>SO</item>
+    <item>LK</item>
+    <item>SZ</item>
+    <item>SD</item>
+    <item>SR</item>
+    <item>SE</item>
+    <item>CH</item>
+    <item>SJ</item>
+    <item>KN</item>
+    <item>MF</item>
+    <item>ST</item>
+    <item>VC</item>
+    <item>RS</item>
+    <item>SY</item>
+    <item>TJ</item>
+    <item>TH</item>
+    <item>TW</item>
+    <item>TZ</item>
+    <item>TF</item>
+    <item>IO</item>
+    <item>PS</item>
+    <item>TL</item>
+    <item>TG</item>
+    <item>TK</item>
+    <item>TO</item>
+    <item>TT</item>
+    <item>TN</item>
+    <item>TC</item>
+    <item>TM</item>
+    <item>TR</item>
+    <item>TV</item>
+    <item>UA</item>
+    <item>UG</item>
+    <item>UY</item>
+    <item>UZ</item>
+    <item>VU</item>
+    <item>VE</item>
+    <item>VN</item>
+    <item>WF</item>
+    <item>ZW</item>
+    <item>ZM</item>
+  </string-array>
 </resources>
