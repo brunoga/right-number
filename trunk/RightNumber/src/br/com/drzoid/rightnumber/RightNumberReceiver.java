@@ -52,12 +52,20 @@ public class RightNumberReceiver extends BroadcastReceiver {
     PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
     
     boolean internationalMode = preferences.getBoolean(
-    		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
+        RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
+    
+    int defaultAreaCode = 0;
+    try {
+      defaultAreaCode = Integer.parseInt(preferences.getString(
+          RightNumberConstants.DEFAULT_AREA_CODE, ""));
+    } catch (NumberFormatException e) {
+    	// Intentionally do nothing.
+    }
 
     String newNumber = originalNumber;
     try {
       newNumber = formatter.formatPhoneNumber(originalNumber, originalCountry, currentCountry,
-      		internationalMode);
+      		defaultAreaCode, internationalMode);
     } catch (IllegalArgumentException e) {
       Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
     }

@@ -58,4 +58,8 @@
 <string name="use_priority_0_receiver">Run as last</string>
 <string name="use_priority_0_receiver_summary_on">Will try to be the last one to process the number.</string>
 <string name="use_priority_0_receiver_summary_off">Will process numbers before the final number processing (preferred mode).</string>
+<string name="default_area_code">Default area code</string>
+<string name="default_area_code_summary">Area code to use for local numbers.</string>
+<string name="area_code">Area code</string>
+<string name="area_code_message">Enter area code to be used as default. Empty or 0 means do not use defaut area code.</string>
 </resources>

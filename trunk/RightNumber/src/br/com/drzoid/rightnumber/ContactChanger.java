@@ -23,10 +23,12 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -115,6 +117,19 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
         contactAccess.newBatchBuilder(Math.min(numPhoneNumbers, 100));
 
     boolean partialFailure = false;
+    
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    boolean internationalMode = preferences.getBoolean(
+    		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
+    
+    int defaultAreaCode = 0;
+    try {
+      defaultAreaCode = Integer.parseInt(preferences.getString(
+          RightNumberConstants.DEFAULT_AREA_CODE, ""));
+    } catch (NumberFormatException e) {
+    	// Intentionally do nothing.
+    }
+
     while (!updatingCancelled.get() && cursor.moveToNext()) {
       // Update progress.
       incrementProgressBy(progressDialog, 1);
@@ -127,7 +142,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
       String newNumber;
       try {
       	newNumber = phoneNumberFormatter.formatPhoneNumber(number, originalCountry,
-      		originalCountry, true);
+      		originalCountry, defaultAreaCode, true);
       } catch (IllegalArgumentException e) {
       	Log.w(RightNumberConstants.LOG_TAG, "Invalid number: " + number, e);
       	partialFailure = true;
