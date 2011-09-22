@@ -18,6 +18,12 @@
                       android:dependency="enable_formatting"
                       android:defaultValue="false" />
 
+  <EditTextPreference android:title="@string/default_area_code"
+                      android:summary="@string/default_area_code_summary"
+                      android:key="default_area_code"
+                      android:dependency="enable_formatting"
+                      android:defaultValue="" android:dialogMessage="@string/area_code_message" android:dialogTitle="@string/area_code"/>
+
   <CheckBoxPreference android:title="@string/international_mode"
                       android:summaryOn="@string/enable_international_mode_summary_on"
                       android:summaryOff="@string/enable_international_mode_summary_off"
@@ -251,5 +257,6 @@
               android:summary="@string/change_contacts_to_international_summary"
               android:persistent="false"
               android:key="change_contacts" />
+  
 
 </PreferenceScreen>

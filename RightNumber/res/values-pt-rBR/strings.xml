@@ -52,4 +52,8 @@
 <string name="use_priority_0_receiver">Executar no final</string>
 <string name="use_priority_0_receiver_summary_on">Tenta ser o último a processar o número.</string>
 <string name="use_priority_0_receiver_summary_off">O número será processado antes do passo final (modo preferido).</string>
+<string name="default_area_code">Código de área padrão</string>
+<string name="default_area_code_summary">Código de área a ser usado para números locais.</string>
+<string name="area_code">Código de área</string>
+<string name="area_code_message">Entre o código de área a usar como padrão. Vazio ou 0 para não usar.</string>
 </resources>

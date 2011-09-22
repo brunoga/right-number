@@ -146,10 +146,18 @@ public class TestNumberActivity extends Activity {
     boolean internationalMode = preferences.getBoolean(
     		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
     
+    int defaultAreaCode = 0;
+    try {
+      defaultAreaCode = Integer.parseInt(preferences.getString(
+          RightNumberConstants.DEFAULT_AREA_CODE, ""));
+    } catch (NumberFormatException e) {
+    	// Intentionally do nothing.
+    }
+    
     String newNumber = originalNumber;
     try {
       newNumber = formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode,
-      		internationalMode);
+      		defaultAreaCode, internationalMode);
     } catch (IllegalArgumentException e) {
       errorView.setText(e.getMessage());
       errorView.setVisibility(View.VISIBLE);
