@@ -9,7 +9,7 @@
                       android:summaryOn="@string/enable_formatting_summary_on"
                       android:summaryOff="@string/enable_formatting_summary_off"
                       android:key="enable_formatting"
-                      android:defaultValue="true" />
+                      android:defaultValue="false" />
                       
   <CheckBoxPreference android:title="@string/use_priority_0_receiver"
                       android:summaryOn="@string/use_priority_0_receiver_summary_on"
@@ -22,7 +22,9 @@
                       android:summary="@string/default_area_code_summary"
                       android:key="default_area_code"
                       android:dependency="enable_formatting"
-                      android:defaultValue="" android:dialogMessage="@string/area_code_message" android:dialogTitle="@string/area_code"/>
+                      android:defaultValue=""
+                      android:dialogMessage="@string/area_code_message"
+                      android:dialogTitle="@string/area_code"/>
 
   <CheckBoxPreference android:title="@string/international_mode"
                       android:summaryOn="@string/enable_international_mode_summary_on"
@@ -41,7 +43,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_bo"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/carrier_title"
                       android:summary="@string/carrier_summary"
@@ -62,7 +64,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_br"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/carrier_title"
                       android:summary="@string/carrier_summary"
@@ -83,7 +85,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_co"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/carrier_title"
                       android:summary="@string/carrier_summary"
@@ -104,7 +106,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_sv"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -118,7 +120,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_fr"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -132,7 +134,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_gt"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -146,7 +148,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_hk"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -160,7 +162,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_il"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -174,7 +176,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_jp"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -188,7 +190,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_pa"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -202,7 +204,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_pt"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -216,7 +218,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_sg"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/international_carrier_title"
                       android:summary="@string/international_carrier_summary"
@@ -230,7 +232,7 @@
                           android:summaryOn="@string/enable_carriers_summary_on"
                           android:summaryOff="@string/enable_carriers_summary_off"
                           android:key="carrier_enable_ve"
-                          android:defaultValue="true" />
+                          android:defaultValue="false" />
 
       <ListPreference android:title="@string/carrier_title"
                       android:summary="@string/carrier_summary"
