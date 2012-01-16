@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -26,10 +26,10 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 /**
  * Activity which allows the user to test how a number would be formatted.
@@ -75,27 +75,32 @@ public class TestNumberActivity extends Activity {
     if (currentCountryIndex != -1) {
       dialingFrom.setSelection(currentCountryIndex);
     }
-    
+
     // Attach change listeners to update the formatted number
     inputText.addTextChangedListener(new TextWatcher() {
+      @Override
       public void onTextChanged(CharSequence s, int start, int before, int count) {
         // Do nothing
       }
 
+      @Override
       public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         // Do nothing
       }
 
+      @Override
       public void afterTextChanged(Editable s) {
         updateFormattedNumber(getApplicationContext());
       }
     });
 
     OnItemSelectedListener spinnerListener = new Spinner.OnItemSelectedListener() {
+      @Override
       public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
         updateFormattedNumber(getApplicationContext());
       }
 
+      @Override
       public void onNothingSelected(AdapterView<?> arg0) {
         // Do nothing
       }
@@ -145,7 +150,7 @@ public class TestNumberActivity extends Activity {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
     boolean internationalMode = preferences.getBoolean(
     		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
-    
+
     int defaultAreaCode = 0;
     try {
       defaultAreaCode = Integer.parseInt(preferences.getString(
@@ -153,7 +158,7 @@ public class TestNumberActivity extends Activity {
     } catch (NumberFormatException e) {
     	// Intentionally do nothing.
     }
-    
+
     String newNumber = originalNumber;
     try {
       newNumber = formatter.formatPhoneNumber(originalNumber, lineCountryCode, fromCountryCode,

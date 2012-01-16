@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,14 +15,14 @@
  */
 package br.com.drzoid.rightnumber;
 
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
-import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 /**
  * Carrier code processing and number reformatting.
@@ -71,7 +71,7 @@ public class CarrierCodes {
     boolean nationalDialing = isNationalDialing(parsedOriginalNumber, dialingFrom);
 
     PhoneNumberType phoneNumberType = phoneNumberUtil.getNumberType(parsedOriginalNumber);
-    
+
     if (phoneNumberType == PhoneNumberType.TOLL_FREE ||
         phoneNumberType == PhoneNumberType.PREMIUM_RATE ||
         phoneNumberType == PhoneNumberType.SHARED_COST) {
@@ -79,7 +79,7 @@ public class CarrierCodes {
       // TODO: Check if this is true everywhere.
       return newNumber;
     }
-        
+
     if (nationalDialing && !requiresCarrier(dialingFrom)) {
       // National dialing, no carrier required
       Log.d(RightNumberConstants.LOG_TAG, "Local carrier not required");
@@ -101,6 +101,11 @@ public class CarrierCodes {
 
     // Get the carrier code to use
     String carrierCode = getCarrierCode(dialingFrom, nationalDialing);
+    if (carrierCode.isEmpty()) {
+      Log.d(RightNumberConstants.LOG_TAG, "Carrier Code enabled but not set");
+      return newNumber;
+    }
+
     Log.d(RightNumberConstants.LOG_TAG, "Carrier Code     : " + carrierCode);
 
     // If there's a +, remove it
