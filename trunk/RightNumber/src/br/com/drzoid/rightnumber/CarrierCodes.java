@@ -101,7 +101,7 @@ public class CarrierCodes {
 
     // Get the carrier code to use
     String carrierCode = getCarrierCode(dialingFrom, nationalDialing);
-    if (carrierCode.isEmpty()) {
+    if (carrierCode.length() == 0) {
       Log.d(RightNumberConstants.LOG_TAG, "Carrier Code enabled but not set");
       return newNumber;
     }
