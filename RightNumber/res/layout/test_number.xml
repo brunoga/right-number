@@ -4,53 +4,53 @@
             android:layout_height="wrap_content">
   <!-- Original number -->
   <LinearLayout android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
     <TextView android:text="@string/test_original_number"
-              android:textSize="24px"
+              android:textSize="24dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
-              android:paddingTop="10px"
-              android:paddingBottom="4px" />
+              android:paddingTop="10dp"
+              android:paddingBottom="4dp" />
     <EditText android:id="@+id/test_number_input"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content" 
               android:inputType="phone"
               android:hint="@string/test_blank_number"
-              android:paddingTop="4px" />
+              android:paddingTop="4dp" />
 
     <!-- Formatted number -->
     <TextView android:text="@string/test_formatted_number"
-              android:textSize="24px"
+              android:textSize="24dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
-              android:paddingTop="10px" />
+              android:paddingTop="10dp" />
     <TextView android:text="@string/test_formatted_blank_number"
               android:id="@+id/test_formatted_number"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="center_horizontal"
-              android:paddingTop="4px"
+              android:paddingTop="4dp"
               android:gravity="center_horizontal"/>
     <TextView android:id="@+id/test_formatting_error"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:layout_gravity="center_horizontal"
-              android:paddingTop="4px"
+              android:paddingTop="4dp"
               android:gravity="center_horizontal"
               android:visibility="gone"
               android:textColor="#ff0000" />
 
     <!-- Dialing from -->
     <TextView android:text="@string/test_dialing_from"
-              android:textSize="24px"
+              android:textSize="24dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
-              android:paddingTop="10px"
-              android:paddingBottom="4px" />
+              android:paddingTop="10dp"
+              android:paddingBottom="4dp" />
     <Spinner android:id="@+id/dialing_from"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -59,12 +59,12 @@
 
     <!-- Line from -->
     <TextView android:text="@string/test_line_from"
-              android:textSize="24px"
+              android:textSize="24dp"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:gravity="center_horizontal"
-              android:paddingTop="10px"
-              android:paddingBottom="4px" />
+              android:paddingTop="10dp"
+              android:paddingBottom="4dp" />
     <Spinner android:id="@+id/line_from"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"

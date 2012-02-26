@@ -101,12 +101,11 @@ public class CarrierCodes {
 
     // Get the carrier code to use
     String carrierCode = getCarrierCode(dialingFrom, nationalDialing);
+    Log.i(RightNumberConstants.LOG_TAG, "carrierCode = " + carrierCode);
     if (carrierCode.length() == 0) {
       Log.d(RightNumberConstants.LOG_TAG, "Carrier Code enabled but not set");
       return newNumber;
     }
-
-    Log.d(RightNumberConstants.LOG_TAG, "Carrier Code     : " + carrierCode);
 
     // If there's a +, remove it
     newNumber = newNumber.replace('+', ' ');

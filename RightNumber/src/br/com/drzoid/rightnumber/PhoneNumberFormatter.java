@@ -68,7 +68,9 @@ public class PhoneNumberFormatter {
     // Parses the phone number
     PhoneNumber parsedOriginalNumber = internalParsePhoneNumber(originalNumber, originalCountry);
     if (parsedOriginalNumber == null) {
-      return originalNumber;
+      // Failed parsing number, so it is invalid.
+    	String message = context.getString(R.string.invalid_number);
+    	throw new IllegalArgumentException(message);
     }
 
     if (!phoneNumberUtil.isValidNumber(parsedOriginalNumber)) {
