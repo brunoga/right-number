@@ -119,8 +119,6 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     boolean partialFailure = false;
     
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-    boolean internationalMode = preferences.getBoolean(
-    		RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);
     
     int defaultAreaCode = 0;
     try {

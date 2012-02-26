@@ -21,8 +21,8 @@
   <string name="change_contacts_to_international_summary">Altera TODOS os seus contatos do Android para terem telefones no formato internacional (o Número Certo sabe usar esse formato para discagem local).</string>
   <string name="change_contacts_confirm">TODOS os telefones de seus contatos serão atualizados para o formato internacional, que torna a discagem simples na maioria dos países com ou sem o Número Certo.\n\nVocê tem certeza?</string>
   <string name="change_contacts_progress_title">Atualizando contatos</string>
-  <string name="change_contacts_progress_formatting">Formatando números...</string>
-  <string name="change_contacts_progress_applying">Salvando alterações...</string>
+  <string name="change_contacts_progress_formatting">Formatando números&#8230;</string>
+  <string name="change_contacts_progress_applying">Salvando alterações&#8230;</string>
   <string name="change_contacts_partial_failure">Alguns dos seus contatos podem não ter sido atualizados.</string>
   <string name="change_contacts_cancelled">Operação cancelada. Alguns dos seus contatos podem não ter sido atualizados.</string>
   <string name="change_contacts_success">Todos os contatos foram atualizados com sucesso.</string>
