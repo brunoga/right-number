@@ -62,4 +62,5 @@
 <string name="default_area_code_summary">Area code to use for local numbers.</string>
 <string name="area_code">Area code</string>
 <string name="area_code_message">Enter area code to be used as default. Empty or 0 means do not use defaut area code.</string>
+<string name="ambiguous_mobile_number">This number could be either mobile or fixed line. Not trying to add extra 9 digit to it.</string>
 </resources>

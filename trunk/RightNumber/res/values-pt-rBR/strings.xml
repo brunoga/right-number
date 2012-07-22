@@ -56,4 +56,5 @@
 <string name="default_area_code_summary">Código de área a ser usado para números locais.</string>
 <string name="area_code">Código de área</string>
 <string name="area_code_message">Entre o código de área a usar como padrão. Vazio ou 0 para não usar.</string>
+<string name="ambiguous_mobile_number">Este número pode ser de celular ou linha fixa. Digito 9 extra não adicionado.</string>
 </resources>

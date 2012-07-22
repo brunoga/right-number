@@ -100,17 +100,21 @@ public class PhoneNumberFormatter {
         throw new IllegalArgumentException(message);
       }
     }
-
+    
+    // Handle phone number quirks. Like migration to more digits.
+    NumberQuirks numberQuirks = new NumberQuirks(context);
+    parsedOriginalNumber = numberQuirks.process(parsedOriginalNumber);
+    
     if (internationalMode) {
       // Using international mode.
       return phoneNumberUtil.format(parsedOriginalNumber, PhoneNumberFormat.INTERNATIONAL);
     }
 
     // Check for quirks and apply them whenever necessary.
-    Quirks quirks = new Quirks(currentCountry);
-    String quirksResult = quirks.process(parsedOriginalNumber);
-    if (!quirksResult.equals("")) {
-      return quirksResult;
+    FormattingQuirks formattingQuirks = new FormattingQuirks(currentCountry);
+    String formattingQuirksResult = formattingQuirks.process(parsedOriginalNumber);
+    if (!formattingQuirksResult.equals("")) {
+      return formattingQuirksResult;
     }
 
     // Formats the new number.

@@ -20,13 +20,14 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
-public class Quirks {
+public class FormattingQuirks {
 	private final static int CHILE_COUNTRY_CODE = 56;
+	private final static int COLOMBIA_COUNTRY_CODE = 57;
 	
 	private final PhoneNumberUtil phoneNumberUtil;
 	private final int countryCode;
 	
-	public Quirks(String currentCountry) {
+	public FormattingQuirks(String currentCountry) {
 		phoneNumberUtil = PhoneNumberUtil.getInstance();
 		countryCode = phoneNumberUtil.getCountryCodeForRegion(currentCountry);
 	}
@@ -34,12 +35,14 @@ public class Quirks {
 	public String process(PhoneNumber phoneNumber) {
 		switch (countryCode) {
 		case CHILE_COUNTRY_CODE:
-				return processChile(phoneNumber);
+			return processChile(phoneNumber);
+		case COLOMBIA_COUNTRY_CODE:
+			return processColombia(phoneNumber);			
 		default:
 			return "";
 		}
 	}
-	
+		
 	private String processChile(PhoneNumber phoneNumber) {
 		PhoneNumberType phoneNumberType = phoneNumberUtil.getNumberType(phoneNumber);
 		int phoneNumberCountryCode = phoneNumber.getCountryCode();
@@ -57,4 +60,26 @@ public class Quirks {
 			return "";
 		}
 	}
+	
+	private String processColombia(PhoneNumber phoneNumber) {
+		PhoneNumberType phoneNumberType = phoneNumberUtil.getNumberType(phoneNumber);
+		int phoneNumberCountryCode = phoneNumber.getCountryCode();
+		
+		if (phoneNumberCountryCode != countryCode) {
+			// If making an international call, normal processing is required
+			return "";
+		}
+				
+		switch (phoneNumberType) {
+		case MOBILE:
+			// No need to process the number, just get the plain phone number.
+			// All calls from cellphones to cellphones in colombia have no carrier code.
+			return String.valueOf(phoneNumber.getNationalNumber());
+		case FIXED_LINE:
+			// No carrier whatsoever. Just prepend "03" from cellphones.
+			return "03" + String.valueOf(phoneNumber.getNationalNumber());
+		default:
+			return "";
+		}	
+	}	
 }
