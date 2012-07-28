@@ -112,7 +112,7 @@ public class ContactChanger implements DialogInterface.OnCancelListener {
     TelephonyManager telephonyManager =
         (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     String originalCountry = telephonyManager.getSimCountryIso().toUpperCase();
-    PhoneNumberFormatter phoneNumberFormatter = new PhoneNumberFormatter(context);
+    PhoneNumberFormatter phoneNumberFormatter = new PhoneNumberFormatter(context, false);
     OperationBatchBuilder batchBuilder =
         contactAccess.newBatchBuilder(Math.min(numPhoneNumbers, 100));
 
