@@ -49,7 +49,7 @@ public class RightNumberReceiver extends BroadcastReceiver {
     	originalNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
     }
 
-    PhoneNumberFormatter formatter = new PhoneNumberFormatter(context);
+    PhoneNumberFormatter formatter = new PhoneNumberFormatter(context, true);
     
     boolean internationalMode = preferences.getBoolean(
         RightNumberConstants.ENABLE_INTERNATIONAL_MODE, false);

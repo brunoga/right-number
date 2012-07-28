@@ -34,11 +34,14 @@ public class PhoneNumberFormatter {
   private final Context context;
   private final PhoneNumberUtil phoneNumberUtil;
   private final CarrierCodes carrierCodes;
+  
+  private final boolean dialing;
 
-  public PhoneNumberFormatter(Context context) {
+  public PhoneNumberFormatter(Context context, boolean dialing) {
     this.context = context;
     this.phoneNumberUtil = PhoneNumberUtil.getInstance();
     this.carrierCodes = new CarrierCodes(context, phoneNumberUtil);
+    this.dialing = dialing;
   }
 
   /**
@@ -102,7 +105,7 @@ public class PhoneNumberFormatter {
     }
     
     // Handle phone number quirks. Like migration to more digits.
-    NumberQuirks numberQuirks = new NumberQuirks(context);
+    NumberQuirks numberQuirks = new NumberQuirks(context, dialing);
     parsedOriginalNumber = numberQuirks.process(parsedOriginalNumber);
     
     if (internationalMode) {

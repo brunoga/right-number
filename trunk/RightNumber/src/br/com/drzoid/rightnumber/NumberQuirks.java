@@ -19,7 +19,6 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -34,9 +33,12 @@ public class NumberQuirks {
 	private final PhoneNumberUtil phoneNumberUtil;
 	private final Context context;
 	
-	public NumberQuirks(Context context) {
+	private final boolean dialing;
+	
+	public NumberQuirks(Context context, boolean dialing) {
 		this.phoneNumberUtil = PhoneNumberUtil.getInstance();
 		this.context = context;
+		this.dialing = dialing;
 	}
 	
 	public PhoneNumber process(PhoneNumber phoneNumber) {
@@ -62,7 +64,7 @@ public class NumberQuirks {
 		Calendar currentCalendar = Calendar.getInstance(timeZone);
 		
 		Calendar targetCalendar = Calendar.getInstance(timeZone);
-		targetCalendar.set(2012, 7, 29, 11, 59, 59);
+		targetCalendar.set(2012, 7, 28, 23, 59, 59);
 		
 		if (!currentCalendar.after(targetCalendar)) {
 			// Not there yet.
@@ -75,8 +77,10 @@ public class NumberQuirks {
 			phoneNumber.setNationalNumber(Long.parseLong(areaCode + "9" + subscriberNumber));
 			break;
 		case FIXED_LINE_OR_MOBILE:
-			// Show a warning.
-			Toast.makeText(context, context.getString(R.string.ambiguous_mobile_number), Toast.LENGTH_SHORT).show();
+			if (dialing) {
+				// Show a warning.
+				Toast.makeText(context, context.getString(R.string.ambiguous_mobile_number), Toast.LENGTH_SHORT).show();
+			}
 		}
 		
 		return phoneNumber;

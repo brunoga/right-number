@@ -52,7 +52,8 @@ public class TestNumberActivity extends Activity {
 
     setContentView(R.layout.test_number);
 
-    formatter = new PhoneNumberFormatter(this);
+    // We pretend we are dialing so we get toasts when relevant.
+    formatter = new PhoneNumberFormatter(this, true);
     countryCodes = getResources().getStringArray(R.array.country_codes);
 
     // Find relevant widgets
