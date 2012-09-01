@@ -4,8 +4,8 @@
 	<classpathentry kind="lib" path="libs/google-collect-1.0.jar"/>
 	<classpathentry kind="lib" path="libs/protobuf.jar"/>
 	<classpathentry kind="lib" path="libs/libphonenumber.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
