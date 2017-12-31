@@ -36,6 +36,7 @@
 	<!-- From http://pt.wikipedia.org/wiki/Operadora -->
 	<string-array name="carriers_br">
 		<!-- Most common ones first (alphabetical) -->
+		<item>Nextel</item>
 		<item>Brasil Telecom</item>
 		<item>Embratel/Claro</item>
 		<item>GVT</item>
@@ -45,6 +46,7 @@
 		<item>TIM</item>
 	</string-array>
 	<string-array name="carrier_codes_br">
+		<item>099</item>
 		<item>014</item>
 		<item>021</item>
 		<item>025</item>
@@ -54,6 +56,7 @@
 		<item>041</item>
 	</string-array>
 	<string-array name="int_carrier_codes_br">
+		<item>0099</item>
 		<item>0014</item>
 		<item>0021</item>
 		<item>0025</item>
